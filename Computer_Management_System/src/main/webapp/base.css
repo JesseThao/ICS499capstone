@@ -1,0 +1,36 @@
+@charset "ISO-8859-1";
+body {background-color:#d1e1e8; font-family:Verdana }
+#header { height: 80px; width: 100%; }	
+h1
+{ text-align: center; }
+
+#products{
+	font-family: Verdana;
+	border-collapse: collapse;
+  	width: 75%;
+  	margin:0 auto;
+}
+#products td, #products th {
+  border: 1px solid #9B9B9B;
+  padding: 8px;
+}
+
+#products tr:nth-child(even){background-color: #f2f2f2;}
+
+#products tr:hover {background-color: #9B9B9B;}
+
+#products th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5C3D77;
+  color: white;
+}
+img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.footer{
+	text-align: center;
+}
