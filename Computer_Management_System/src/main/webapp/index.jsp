@@ -17,6 +17,11 @@
 <body>
 	<img src="images/logo2.png" alt="Computer Hardware Management System"/>
 	<hr>
+	<ul>
+	  <li><a href="/index.jsp">Home</a></li>
+	  <li><a href="/login">Log In</a></li>
+	  <li><a href="/save">Save</a></li>
+	</ul><br />
 	<table id="products">
 		<tr>
 			<th>Component</th>
@@ -25,9 +30,96 @@
 	        <th>Price</th>
 	        <th>Link</th>
 	    </tr>
-		<tr>
-			<td colspan="5"rowspan="5" width="100%" height="100%"></td>		
+		<tr class="items">
+			<td scope="row" class="component">Processor</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/processor">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
 		</tr>
+		<tr class="items">
+			<td scope="row" class="component">Motherboard</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/motherboard">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>			
+		<tr class="items">
+			<td scope="row" class="component">Case</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/case">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>					
+		<tr class="items">
+			<td scope="row" class="component">Graphics Card</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/graphics">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>				
+		<tr class="items">
+			<td scope="row" class="component">RAM</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/ram">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>	
+		<tr class="items">
+			<td scope="row" class="component">Storage</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/storage">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>			
+		<tr class="items">
+			<td scope="row" class="component">Power Supply</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/powersupply">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>			
+		<tr class="items">
+			<td scope="row" class="component">Monitor</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/monitor">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>	
+		<tr class="items">
+			<td scope="row" class="component">Coming Soon</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/tbd">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>									
 	</table>
 	<br /><div class="footer">Copyright 2022 All Rights Reserved.</div>
 </body>
