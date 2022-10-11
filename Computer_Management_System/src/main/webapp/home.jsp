@@ -5,23 +5,28 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<link rel="stylesheet" type="text/css" href="base.css"/>
-	<link rel="stylesheet" type="text/css" href="print.css" media="print" charset="utf-8"/>
-	<link rel="stylesheet" type="text/css" href="projglobal.css" media="screen" charset="utf-8"/>
-	<link rel="alternate stylesheet" type="text/css" href="smaller.css" title="smaller" />
-	<link rel="alternate stylesheet" type="text/css" href="bigger.css" title="bigger" />
-	<script language="JavaScript" type="text/javascript" src="styleswitcher.js"></script>
+	<script src="https://kit.fontawesome.com/887323dcd1.js" crossorigin="anonymous"></script>
+
 	
 	<title>Computer Hardware Management System</title>
 </head>
 
 <body>
-	<img src="images/logo2.png" alt="Computer Hardware Management System"/>
-	<hr>
-	<ul>
-	  <li><a href="/index.jsp">Home</a></li>
-	  <li><a href="/login">Log In</a></li>
-	  <li><a href="/save">Save</a></li>
-	</ul><br />
+	<table id="header">
+		<tr>
+			<td><img src="images/logo3.png" alt="Computer Hardware Management System"/></td>
+		</tr>
+		<tr>
+			<td>
+				<ul>
+					<li><a href="home.jsp" title="Home"><i class="fa-solid fa-house fa-lg"></i></a></li>
+					<li><a href="login.jsp" title="Log-in"><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></a></li>
+					<li><a href="save.jsp" title="Save"><i class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
+				</ul>
+			</td>
+		</tr>		
+	</table>
+
 	<table id="products">
 		<tr>
 			<th>Component</th>
@@ -33,17 +38,17 @@
 		<tr class="items">
 			<td scope="row" class="component">Processor</td>
 			<td class="select-comp" colspan="4">
-				<a class="btn btn-primary component-btn" href="/product/processor">
+				<a class="btn btn-primary component-btn" href="processor.jsp">
 					<i class="fa fa-plus">
 					</i>
 					Add Component
 				</a>
-			</td>			
+			</td>
 		</tr>
 		<tr class="items">
 			<td scope="row" class="component">Motherboard</td>
 			<td class="select-comp" colspan="4">
-				<a class="btn btn-primary component-btn" href="/product/motherboard">
+				<a class="btn btn-primary component-btn" href="motherboard.jsp">
 					<i class="fa fa-plus">
 					</i>
 					Add Component
@@ -53,7 +58,7 @@
 		<tr class="items">
 			<td scope="row" class="component">Case</td>
 			<td class="select-comp" colspan="4">
-				<a class="btn btn-primary component-btn" href="/product/case">
+				<a class="btn btn-primary component-btn" href="case.jsp">
 					<i class="fa fa-plus">
 					</i>
 					Add Component
@@ -63,7 +68,7 @@
 		<tr class="items">
 			<td scope="row" class="component">Graphics Card</td>
 			<td class="select-comp" colspan="4">
-				<a class="btn btn-primary component-btn" href="/product/graphics">
+				<a class="btn btn-primary component-btn" href="graphics.jsp">
 					<i class="fa fa-plus">
 					</i>
 					Add Component
@@ -73,7 +78,7 @@
 		<tr class="items">
 			<td scope="row" class="component">RAM</td>
 			<td class="select-comp" colspan="4">
-				<a class="btn btn-primary component-btn" href="/product/ram">
+				<a class="btn btn-primary component-btn" href="ram.jsp">
 					<i class="fa fa-plus">
 					</i>
 					Add Component
@@ -83,7 +88,7 @@
 		<tr class="items">
 			<td scope="row" class="component">Storage</td>
 			<td class="select-comp" colspan="4">
-				<a class="btn btn-primary component-btn" href="/product/storage">
+				<a class="btn btn-primary component-btn" href="storage.jsp">
 					<i class="fa fa-plus">
 					</i>
 					Add Component
@@ -93,7 +98,7 @@
 		<tr class="items">
 			<td scope="row" class="component">Power Supply</td>
 			<td class="select-comp" colspan="4">
-				<a class="btn btn-primary component-btn" href="/product/powersupply">
+				<a class="btn btn-primary component-btn" href="powersupply.jsp">
 					<i class="fa fa-plus">
 					</i>
 					Add Component
@@ -103,7 +108,27 @@
 		<tr class="items">
 			<td scope="row" class="component">Monitor</td>
 			<td class="select-comp" colspan="4">
-				<a class="btn btn-primary component-btn" href="/product/monitor">
+				<a class="btn btn-primary component-btn" href="monitor">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>	
+		<tr class="items">
+			<td scope="row" class="component">Accessories</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/tbd">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>	
+		<tr class="items">
+			<td scope="row" class="component">USB</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="/product/tbd">
 					<i class="fa fa-plus">
 					</i>
 					Add Component
@@ -119,7 +144,7 @@
 					Add Component
 				</a>
 			</td>			
-		</tr>									
+		</tr>															
 	</table>
 	<br /><div class="footer">Copyright 2022 All Rights Reserved.</div>
 </body>

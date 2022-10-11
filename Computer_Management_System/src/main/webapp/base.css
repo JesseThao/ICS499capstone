@@ -11,12 +11,15 @@ h1
   	margin:0 auto;
   	background-color: #f2f4f4;
 }
+
 #products td, #products th {
   
   padding: 8px;
 }
 
 #products tr {border: 1px solid #dbdddd;}
+#products tr:nth-child(even){background-color: #f2f2f2;}
+#products tr:hover {background-color: #9B9B9B;}
 
 #products th {
   padding-top: 12px;
@@ -25,10 +28,12 @@ h1
   background-color: #5C3D77;
   color: white;
 }
+
 img{
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	width: 170px;
+	height: 170px;
+	margin:0 auto;
 }
 .btn{
 	display: inline-block;
@@ -65,14 +70,14 @@ img{
 }
 ul {
   list-style-type:none;
-  margin: 0;
-  padding: 0;
-  width: 5%;
+  margin:auto;
+  padding: 10px;
+  overflow:hidden;
   background-color: #1d3f66;
   font-family: Verdana;
-  position: fixed;
-  overflow: auto;
+
 }
+li {float:right;}
 
 li a {
   display: block;
@@ -80,6 +85,7 @@ li a {
   color: white;
   padding: 8px 16px;
   text-decoration: none;
+  text-align: center;
 }
 li a.active {
   background-color: #5C3D77;
@@ -90,6 +96,9 @@ li a.active {
 li a:hover {
   background-color: #5C3D77;
   color: white;
+}
+.red{
+	color: 	#1d3f66;
 }
 .footer{
 	text-align: center;
