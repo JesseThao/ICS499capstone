@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+H3
+{ text-align: center; }
+#login{
+	font-family: Verdana;
+	border-collapse: collapse;
+  	width: 15%;
+  	margin:0 auto;
+  	background-color: #f2f4f4;
+}
