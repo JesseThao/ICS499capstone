@@ -23,50 +23,21 @@
 			<th>Price</th>
 			<th>Link</th>
 		</tr>
+		<c:forEach items="${products}" var="product" varStatus="stat">
 		<tr class="items">
-			<td scope="row" class="component">AMD Ryzen 9 7950X</td>
+			<td>${product.productID}</td>
 			<td width="10%"><a href="review.jsp"> <i
 					class="fa-solid fa-star red"></i> <i class="fa-solid fa-star red"></i>
 					<i class="fa-solid fa-star red"></i> <i
 					class="fa-solid fa-star red"></i> <i
 					class="fa-solid fa-star-half-stroke red"></i>
 			</a></td>
-			<td>AMD Ryzen 9 7950X 16-Core, 32-Thread Unlocked Desktop
-				Processor</td>
-			<td>$699.00</td>
+			<td>${product.description}</td>
+			<td>${product.price}</td>
 			<td width="5%"><a href="https://a.co/d/4m9HHMG"><i
 					class="fa-solid fa-link fa-lg"></i></a></td>
-
-
 		</tr>
-		<tr class="items">
-			<td scope="row" class="component">Intel Core i9-12900K</td>
-			<td width="10%"><a href="review.jsp"> <i
-					class="fa-solid fa-star red"></i> <i class="fa-solid fa-star red"></i>
-					<i class="fa-regular fa-star red"></i> <i
-					class="fa-regular fa-star red"></i> <i
-					class="fa-regular fa-star red"></i>
-			</a></td>
-			<td>Intel Core i9-12900K Desktop Processor 16 (8P+8E) Cores up
-				to 5.2 GHz Unlocked LGA1700 600 Series</td>
-			<td>$528.82</td>
-			<td><a href="https://a.co/d/3StY0mW"><i
-					class="fa-solid fa-link fa-lg"></i></a></td>
-		</tr>
-		<tr class="items">
-			<td scope="row" class="component">Intel Core i9-7980XE</td>
-			<td width="10%"><a href="review.jsp"> <i
-					class="fa-solid fa-star red"></i> <i class="fa-solid fa-star red"></i>
-					<i class="fa-solid fa-star red"></i> <i
-					class="fa-regular fa-star red"></i> <i
-					class="fa-regular fa-star red"></i>
-			</a></td>
-			<td>Intel Core i9-7980XE Extreme Edition Processors with 18
-				Cores & 32 Threads</td>
-			<td>$1499.00</td>
-			<td><a href="https://a.co/d/3LB7caY"><i
-					class="fa-solid fa-link fa-lg"></i></a></td>
-		</tr>
+		</c:forEach>
 	</table>
 
 	<br />

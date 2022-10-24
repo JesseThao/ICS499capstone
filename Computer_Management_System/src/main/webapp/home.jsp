@@ -3,16 +3,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<link rel="stylesheet" type="text/css" href="base.css"/>
-	<script src="https://kit.fontawesome.com/887323dcd1.js" crossorigin="anonymous"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="base.css" />
+<script src="https://kit.fontawesome.com/887323dcd1.js"
+	crossorigin="anonymous"></script>
 
-	
-	<title>Computer Hardware Management System</title>
+
+<title>Computer Hardware Management System</title>
 </head>
 
 <body>
-<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp" %>
+	<form action="GetProduct">
 	<table id="products">
 		<tr>
 			<th>Component</th>
@@ -22,15 +24,13 @@
 	        <th>Link</th>
 	    </tr>
 		<tr class="items">
-			<td scope="row" class="component">Processor</td>
+			<td scope="row" class="component">Processor</td>		
 			<td class="select-comp" colspan="4">
-				<a class="btn btn-primary component-btn" href="processor.jsp">
-					<i class="fa fa-plus">
-					</i>
-					Add Component
-				</a>
+					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
+					<input type="hidden" name="prodType" value="processor">				
 			</td>
 		</tr>
+
 		<tr class="items">
 			<td scope="row" class="component">Motherboard</td>
 			<td class="select-comp" colspan="4">
@@ -74,7 +74,7 @@
 		<tr class="items">
 			<td scope="row" class="component">Storage</td>
 			<td class="select-comp" colspan="4">
-				<a class="btn btn-primary component-btn" href="storage.jsp">
+				<a  class="btn btn-primary component-btn" href="storage.jsp">
 					<i class="fa fa-plus">
 					</i>
 					Add Component
@@ -132,6 +132,7 @@
 			</td>			
 		</tr>															
 	</table>
+	</form>
 	<br /><div class="footer">Copyright 2022 All Rights Reserved.</div>
 </body>
 </html>
