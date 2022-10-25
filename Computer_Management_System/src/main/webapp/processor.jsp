@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="css/base.css" />
 <script src="https://kit.fontawesome.com/887323dcd1.js"
 	crossorigin="anonymous"></script>
 
@@ -26,7 +26,7 @@
 		<c:forEach items="${products}" var="product" varStatus="stat">
 		<tr class="items">
 			<td>${product.productID}</td>
-			<td width="10%"><a href="review.jsp"> <i
+			<td width="10%"><a href="CreateReview"> <i
 					class="fa-solid fa-star red"></i> <i class="fa-solid fa-star red"></i>
 					<i class="fa-solid fa-star red"></i> <i
 					class="fa-solid fa-star red"></i> <i
