@@ -79,9 +79,10 @@
 			<div>20</div>
 		</div>
 	</div>
+	<form action="CreateReview">
 		<div class="center">
-  		<button>Write Review</button>
+  		<button type="submit" class="component-btn">Write Review</button>
 		</div>
-
+	</form>
 </body>
 </html>
