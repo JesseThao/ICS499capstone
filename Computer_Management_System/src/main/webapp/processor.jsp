@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="css/base.css" />
 <script src="https://kit.fontawesome.com/887323dcd1.js"
 	crossorigin="anonymous"></script>
 
@@ -26,11 +26,12 @@
 		<c:forEach items="${products}" var="product" varStatus="stat">
 		<tr class="items">
 			<td>${product.productID}</td>
-			<td width="10%"><a href="review.jsp"> <i
-					class="fa-solid fa-star red"></i> <i class="fa-solid fa-star red"></i>
-					<i class="fa-solid fa-star red"></i> <i
-					class="fa-solid fa-star red"></i> <i
-					class="fa-solid fa-star-half-stroke red"></i>
+			<td width="10%"><a id="starlink" href="CreateReview"> 
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa-solid fa-star red"></span>
+			<span class="fa-solid fa-star red"></span>
+			<i class="fa-solid fa-star-half-stroke red"></i>
 			</a></td>
 			<td>${product.description}</td>
 			<td>${product.price}</td>
