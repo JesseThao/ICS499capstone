@@ -79,7 +79,7 @@
 			<div>20</div>
 		</div>
 	</div>
-	<form action="CreateReview">
+	<form action="writeReview.jsp">
 		<div class="center">
   		<button type="submit" class="component-btn">Write Review</button>
 		</div>

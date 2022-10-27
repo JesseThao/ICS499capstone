@@ -26,7 +26,7 @@
 		<c:forEach items="${products}" var="product" varStatus="stat">
 		<tr class="items">
 			<td>${product.productID}</td>
-			<td width="10%"><a id="starlink" href="CreateReview"> 
+			<td width="10%"><a id="starlink" href="RetrieveReview"> 
 			<span class="fa fa-star checked"></span>
 			<span class="fa fa-star checked"></span>
 			<span class="fa-solid fa-star red"></span>
