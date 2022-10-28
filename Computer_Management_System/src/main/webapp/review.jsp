@@ -81,7 +81,8 @@
 	</div>
 	<form action="writeReview.jsp">
 		<div class="center">
-  		<button type="submit" class="component-btn">Write Review</button>
+  		<button type="submit" class="component-btn">Write Review for product ${productID}</button>
+  		<input type="hidden" name="prodID" value="${productID}">
 		</div>
 	</form>
 </body>

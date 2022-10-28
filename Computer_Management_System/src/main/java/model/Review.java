@@ -13,6 +13,7 @@ public class Review implements Serializable {
 	private int rating;
 	private int average;
 	private int key;
+	private String productID;
 	
 	
 	public int getAverage() {
@@ -33,5 +34,11 @@ public class Review implements Serializable {
 			return 0;
 		}
 		return key;
+	}
+	public void setProductID(String parameter) {
+		productID = parameter;	
+	}
+	public String getProductID(String parameter) {
+		return productID;	
 	}
 }
