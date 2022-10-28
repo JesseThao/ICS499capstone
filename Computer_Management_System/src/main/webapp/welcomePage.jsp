@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Create User Result</title>
+<title>Insert title here</title>
 </head>
 <body>
+<a href = http://localhost:8082/Computer_Management_System/logout.jsp> logout</a>
+<h1>You have logged in successfully</h1>
+<%@ include file="home.jsp" %>
 
-<h1>Account created successfully</h1>
-<%@ include file="createUser.jsp" %>
 
 </body>
 </html>

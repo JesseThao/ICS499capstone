@@ -4,12 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Create User Result</title>
+<title>You have successfully logged in</title>
+<%@ include file="home.jsp" %>
 </head>
 <body>
-
-<h1>Account created successfully</h1>
-<%@ include file="createUser.jsp" %>
 
 </body>
 </html>

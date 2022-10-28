@@ -31,16 +31,13 @@ public class CreateUser extends HttpServlet {
 		}
 			
 	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String firstName = request.getParameter("firstName");
 		String lastName =request.getParameter("lastName");
 		String password = request.getParameter("password");
 		String email =request.getParameter("email");
-		
+
 		try {
 			Statement statement = connection.createStatement();
 			int result = statement.executeUpdate("insert into user values('"+firstName+"','"+lastName+"','"+email+"','"+password+"')");
@@ -57,6 +54,7 @@ public class CreateUser extends HttpServlet {
 		}
 	}
 	
+	
 	public void destroty(){
 		try {
 			connection.close();
@@ -64,4 +62,5 @@ public class CreateUser extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+
 }

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,6 @@
 <title>CHMS</title>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
 	<H3>Under Construction</H3>
 </body>
 </html>
