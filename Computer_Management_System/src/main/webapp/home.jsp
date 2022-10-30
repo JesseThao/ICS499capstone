@@ -3,18 +3,30 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/base.css" />
-<script src="https://kit.fontawesome.com/887323dcd1.js"
-	crossorigin="anonymous"></script>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="base.css"/>
+	<script src="https://kit.fontawesome.com/887323dcd1.js" crossorigin="anonymous"></script>
 
-
-<title>Computer Hardware Management System</title>
+	
+	<title>Computer Hardware Management System</title>
 </head>
 
 <body>
-	<%@ include file="header.jsp" %>
-	
+	<table id="header">
+		<tr>
+			<td><img src="images/logo3.png" alt="Computer Hardware Management System"/></td>
+		</tr>
+		<tr>
+			<td>
+				<ul>
+					<li><a href="home.jsp" title="Home"><i class="fa-solid fa-house fa-lg"></i></a></li>
+					<li><a href="login.jsp" title="Log-in"><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></a></li>
+					<li><a href="save.jsp" title="Save"><i class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
+				</ul>
+			</td>
+		</tr>		
+	</table>
+
 	<table id="products">
 		<tr>
 			<th>Component</th>
@@ -23,87 +35,117 @@
 	        <th>Price</th>
 	        <th>Link</th>
 	    </tr>
-	 <form action="GetProduct">
 		<tr class="items">
-			<td scope="row" class="component">Processor</td>		
+			<td scope="row" class="component">Processor</td>
 			<td class="select-comp" colspan="4">
-					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
-					<input type="hidden" name="prodType" value="Processor">				
+				<a class="btn btn-primary component-btn" href="processor.jsp">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
 			</td>
 		</tr>
-	</form>
-	<form action="GetProduct">
 		<tr class="items">
-			<td scope="row" class="component">Motherboard</td>		
+			<td scope="row" class="component">Motherboard</td>
 			<td class="select-comp" colspan="4">
-					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
-					<input type="hidden" name="prodType" value="Motherboard">				
-			</td>
+				<a class="btn btn-primary component-btn" href="motherboard.jsp">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>			
+		<tr class="items">
+			<td scope="row" class="component">Case</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="case.jsp">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>					
+		<tr class="items">
+			<td scope="row" class="component">Graphics Card</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="graphics.jsp">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>				
+		<tr class="items">
+			<td scope="row" class="component">RAM</td>
+			<td class="select-comp" colspan="4">
+				<a class="btn btn-primary component-btn" href="ram.jsp">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
 		</tr>	
-	</form>	
-	<form action="GetProduct">	
 		<tr class="items">
-			<td scope="row" class="component">Case</td>		
+			<td scope="row" class="component">Storage</td>
 			<td class="select-comp" colspan="4">
-					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
-					<input type="hidden" name="prodType" value="Case">				
-			</td>
-		</tr>
-	</form>	
-	<form action="GetProduct">					
+				<a class="btn btn-primary component-btn" href="storage.jsp">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>			
 		<tr class="items">
-			<td scope="row" class="component">Graphics Card</td>		
+			<td scope="row" class="component">Power Supply</td>
 			<td class="select-comp" colspan="4">
-					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
-					<input type="hidden" name="prodType" value="Graphics Card">				
-			</td>
-		</tr>
-	</form>	
-	<form action="GetProduct">			
+				<a class="btn btn-primary component-btn" href="powersupply.jsp">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>			
 		<tr class="items">
-			<td scope="row" class="component">Ram</td>		
+			<td scope="row" class="component">Monitor</td>
 			<td class="select-comp" colspan="4">
-					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
-					<input type="hidden" name="prodType" value="Ram">				
-			</td>
+				<a class="btn btn-primary component-btn" href="monitor">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
 		</tr>	
-	</form>
-	<form action="GetProduct">	
 		<tr class="items">
-			<td scope="row" class="component">Storage</td>		
+			<td scope="row" class="component">Accessories</td>
 			<td class="select-comp" colspan="4">
-					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
-					<input type="hidden" name="prodType" value="Storage">				
-			</td>
+				<a class="btn btn-primary component-btn" href="/product/tbd">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
 		</tr>	
-	</form>			
 		<tr class="items">
-			<td scope="row" class="component">Power Supply</td>		
+			<td scope="row" class="component">USB</td>
 			<td class="select-comp" colspan="4">
-					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
-					<input type="hidden" name="prodType" value="Power Supply">				
-			</td>
+				<a class="btn btn-primary component-btn" href="/product/tbd">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
 		</tr>	
-	<form action="GetProduct">			
 		<tr class="items">
-			<td scope="row" class="component">Monitor</td>		
+			<td scope="row" class="component">Coming Soon</td>
 			<td class="select-comp" colspan="4">
-					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
-					<input type="hidden" name="prodType" value="Monitor">				
-			</td>
-		</tr>	
-	</form>	
-	<form action="GetProduct">
-		<tr class="items">
-			<td scope="row" class="component">Accessories</td>		
-			<td class="select-comp" colspan="4">
-					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
-					<input type="hidden" name="prodType" value="Accessories">				
-			</td>
-		</tr>	
-	</form>
+				<a class="btn btn-primary component-btn" href="/product/tbd">
+					<i class="fa fa-plus">
+					</i>
+					Add Component
+				</a>
+			</td>			
+		</tr>															
 	</table>
-	
 	<br /><div class="footer">Copyright 2022 All Rights Reserved.</div>
 </body>
 </html>

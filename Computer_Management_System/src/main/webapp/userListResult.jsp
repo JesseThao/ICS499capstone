@@ -11,7 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="header.jsp" %>
 
 <%for(int i = 0;i<userList.size(); i++){%>
 	<% User user = (User) userList.get(i);%>

@@ -4,12 +4,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Create User Result</title>
+<title>Insert title here</title>
 </head>
 <body>
+<%
 
-<h1>Account created successfully</h1>
-<%@ include file="createUser.jsp" %>
+session.invalidate();
+response.sendRedirect("home.jsp");
 
+%>
 </body>
 </html>
