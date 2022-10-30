@@ -13,20 +13,6 @@
 </head>
 
 <body>
-	<table id="header">
-		<tr>
-			<td><img src="images/logo3.png" alt="Computer Hardware Management System"/></td>
-		</tr>
-		<tr>
-			<td>
-				<ul>
-					<li><a href="home.jsp" title="Home"><i class="fa-solid fa-house fa-lg"></i></a></li>
-					<li><a href="login.jsp" title="Log-in"><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></a></li>
-					<li><a href="save.jsp" title="Save"><i class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
-				</ul>
-			</td>
-		</tr>		
-	</table>
 
 	<table id="products">
 		<tr>
@@ -54,34 +40,7 @@
 
 		</tr>
 		<tr class="items">
-			<td scope="row" class="component">Intel Core i9-12900K</td>
-			<td width="10%">
-					<a href="review.jsp">
-					<i class="fa-solid fa-star red"></i>
-					<i class="fa-solid fa-star red"></i>
-					<i class="fa-regular fa-star red"></i>
-					<i class="fa-regular fa-star red"></i>
-					<i class="fa-regular fa-star red"></i>
-				</a>
-			</td>
-			<td>Intel Core i9-12900K Desktop Processor 16 (8P+8E) Cores up to 5.2 GHz Unlocked LGA1700 600 Series</td>
-			<td>$528.82</td>
-			<td><a href="https://a.co/d/3StY0mW"><i class="fa-solid fa-link fa-lg"></i></a></td>
-		</tr>
-			<tr class="items">
-			<td scope="row" class="component">Intel Core i9-7980XE</td>
-			<td width="10%">
-					<a href="review.jsp">
-					<i class="fa-solid fa-star red"></i>
-					<i class="fa-solid fa-star red"></i>
-					<i class="fa-solid fa-star red"></i>
-					<i class="fa-regular fa-star red"></i>
-					<i class="fa-regular fa-star red"></i>
-				</a>
-			</td>
-			<td>Intel Core i9-7980XE Extreme Edition Processors with 18 Cores & 32 Threads</td>
-			<td>$1499.00</td>
-			<td><a href="https://a.co/d/3LB7caY"><i class="fa-solid fa-link fa-lg"></i></a></td>
+
 		</tr>
 	</table>
 
