@@ -27,3 +27,18 @@ public class Review implements Serializable {
 				rs.next();
 				key = rs.getInt(1);
 				//key = rs.getString(1));
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.print(e.getMessage());
+			return 0;
+		}
+		return key;
+	}
+	public void setProductID(String parameter) {
+		productID = parameter;	
+	}
+	public String getProductID(String parameter) {
+		return productID;	
+	}
+}
