@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Review;
-import model.reviewList;
+import model.ReviewList;
 
 /**
  * Servlet implementation class CreateReview
@@ -64,7 +64,7 @@ public class CreateReview extends HttpServlet {
 			newReview.setProductID(request.getParameter("prodID"));
 			ResultSet rs2 = statement.executeQuery("Select * from reviews where productID = '" + newReview.getProductID() + "'");
 						
-			var rL = new reviewList(); 
+			var rL = new ReviewList(); 
 			rL.readReviews(rs2);
 			request.setAttribute("reviewList", rL);
 			request.setAttribute("productID", productID);
