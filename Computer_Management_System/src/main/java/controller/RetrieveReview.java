@@ -3,8 +3,10 @@ package controller;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Product;
 import model.Review;
 
 /**
@@ -22,6 +25,7 @@ import model.Review;
 public class RetrieveReview extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection connection;
+	
 	
 	public void init() {
 		try {
@@ -59,28 +63,23 @@ public class RetrieveReview extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		log("in RetrieveReview servlet");
-		Review newReview = new Review();
-		newReview.setProductID(request.getParameter("prodID"));
-		request.setAttribute("review", newReview);
-	/**	String firstName = request.getParameter("firstName");
-		String lastName =request.getParameter("lastName");
-		String password = request.getParameter("password");
-		String email =request.getParameter("email");
-		
+		Review newReview = new Review();	
+	
 		try {
 			Statement statement = connection.createStatement();
-			int result = statement.executeUpdate("insert into user values('"+firstName+"','"+lastName+"','"+email+"','"+password+"')");
-			
-			if(result > 0) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("createUserResult.jsp");
-				dispatcher.forward(request, response);
-			}else {
-				System.out.println("Error Creating User");
-			}
+			newReview.setProductID(request.getParameter("prodID"));
+			ResultSet rs = statement.executeQuery("Select * from reviews where productID = '" + newReview.getProductID() + "'");	
+			var rL = new reviewList(); 
+			rL.readReviews(rs);
+		
+			request.setAttribute("productID", newReview.getProductID());
+			request.setAttribute("reviewList", rL);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	**/
+		}catch (java.lang.NumberFormatException e) {
+			log(e.getMessage());
+		}	
 		request.getRequestDispatcher("review.jsp").forward(request, response);
 	}
 }

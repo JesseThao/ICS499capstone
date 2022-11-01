@@ -6,9 +6,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Review;
-import model.User;
-import model.UserList;
 
 /**
  * Servlet implementation class CreateReview
@@ -26,68 +21,79 @@ import model.UserList;
 public class CreateReview extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection connection;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CreateReview() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CreateReview() {
+		super();
+	}
+
 	public void init() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://cmhs.cdrxbvksu13u.us-east-1.rds.amazonaws.com/cmhs", "admin", "IW2Radlf!");
+			connection = DriverManager.getConnection("jdbc:mysql://cmhs.cdrxbvksu13u.us-east-1.rds.amazonaws.com/cmhs",
+					"admin", "IW2Radlf!");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}	
-	}	
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		log("in CreateReview servlet");
-		String rating = request.getParameter("rating");
-		String comment =request.getParameter("comment");
-		String productID = request.getParameter("productID");
-		
-		try {
-			Statement statement = connection.createStatement();
-			
-			ResultSet rs = statement.executeQuery("SELECT MAX(id)FROM reviews");
-			
-			Review newReview = new Review();
-			
-			int nextKey = newReview.getKey(rs) + 1;
-			
-			/**int result = statement.executeUpdate("insert into user values('"+nextKey+"', '"+rating+"','"+productID+"','"+comment+"')");
-			
-			if(result > 0) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("writeReview.jsp");
-				dispatcher.forward(request, response);
-			}else {
-				System.out.println("Error Creating Review");
-			}**/
-			
-			log("NewReview Bean: " + newReview.toString());
-			log("nextKey value: " + String.valueOf(nextKey));
-			log("Rating: " + request.getParameter("rating"));
-			log("Product ID: " + request.getParameter("productID"));
-			log("Comment: " + request.getParameter("comment"));
-			
-			request.setAttribute("productID", productID);
-			request.getRequestDispatcher("writeReview.jsp").forward(request, response);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 	}
-	
-	public void destroy(){
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		log("in CreateReview servlet");
+
+		String comment = request.getParameter("comment");
+		String productID = request.getParameter("prodID");
+		String msg = null;
+
+		log("productID variable: " + productID);
+		log("prodID attribute: " + request.getParameter("prodID"));
+
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT MAX(id)FROM reviews");
+			
+			if(!request.getParameter("rating").isBlank()) {
+
+				try {
+					Review newReview = new Review().getReview(rs);
+					int nextKey = newReview.getKey() + 1;
+					int rating = Integer.parseInt(request.getParameter("rating"));
+					int result = statement.executeUpdate("insert into reviews values('" + nextKey + "', '" + productID
+							+ "','" + rating + "','" + comment + "')");
+					if (result > 0) {
+						// RequestDispatcher dispatcher =
+						// request.getRequestDispatcher("writeReview.jsp");
+						// dispatcher.forward(request, response);
+						msg = "Thank you for your review";
+
+					} else {
+						msg = "There was an issue creating your review, please try again later";
+					}
+				} catch (java.lang.NumberFormatException e) {
+					log(e.getMessage());
+				} 
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (java.lang.NullPointerException e) {
+			e.printStackTrace();
+		}
+
+		request.setAttribute("productID", productID);
+		request.setAttribute("message", msg);
+		request.getRequestDispatcher("writeReview.jsp").forward(request, response);
+	}
+
+	public void destroy() {
 		try {
 			connection.close();
 		} catch (SQLException e) {
@@ -96,10 +102,11 @@ public class CreateReview extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

@@ -12,8 +12,13 @@
 </head>
 <body>
 	<%@ include file="review.jsp"%>
-
-	<span class="heading">Enter Rating for product "${productID}"</span>
+	<c:choose>
+		<c:when test="${!empty message}">
+			<h1 style="color:#7c0c00">${message }</h1>
+		</c:when>
+	<c:otherwise>
+		<span class="heading">Enter Rating for product ${productID}</span>
+		
 	<br>
 	<form action="CreateReview">
 	<div class="radio-toolbar">
@@ -31,8 +36,9 @@
 		<textarea name="comment" cols="40" rows="5"></textarea>
 		<br>
 		<input type="submit" class="component-btn" name="submit">
-		change
-
+		<input type="hidden" name="prodID" value="${productID}">
+	</c:otherwise>
+	</c:choose>
 	</form>
 
 </body>

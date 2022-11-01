@@ -7,17 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import model.Product;
-import model.User;
-import model.UserList;
+
 
 /**
  * Servlet implementation class Product
@@ -31,7 +27,6 @@ public class RetrieveProduct extends HttpServlet {
      */
     public RetrieveProduct() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
 	private Connection connection;
@@ -51,7 +46,6 @@ public class RetrieveProduct extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		try {
 			Statement statement = connection.createStatement();		
 			String productType = request.getParameter("prodType");
