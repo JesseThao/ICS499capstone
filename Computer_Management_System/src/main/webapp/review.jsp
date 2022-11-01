@@ -1,3 +1,6 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,15 +14,70 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	
+
 	<span class="heading">User Rating</span>
-	<span class="fa fa-star checked"></span>
-	<span class="fa fa-star checked"></span>
-	<span class="fa fa-star checked"></span>
-	<span class="fa fa-star checked"></span>
-	<span class="fa fa-star"></span>
-	<p>4.1 average based on 254 reviews.</p>
-	
+	<p>
+		<c:set var="avgRate" value="${reviewList.averageRating}" />
+		<c:choose>
+			<c:when test="${!empty avgRate}">
+				<c:set var="total" value="${reviewList.total}" />
+				<c:if test="${avgRate > 0 && avgRate <= 1}">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+				</c:if>
+				<c:if test="${avgRate > 1 && avgRate <= 2}">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+				</c:if>
+				<c:if test="${avgRate > 2 && avgRate <= 3}">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+				</c:if>
+				<c:if test="${avgRate > 3 && avgRate <= 4}">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>
+				</c:if>
+				<c:if test="${avgRate > 4 && avgRate <= 5}">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+				</c:if>
+				<c:if test="${avgRate <= 0}">
+
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+				</c:if>
+			</c:when>
+			<c:otherwise>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+			</c:otherwise>
+		</c:choose>
+		<fmt:formatNumber type="number" maxFractionDigits="1"
+			value="${reviewList.averageRating}" />
+		average based on ${reviewList.total} reviews.
+	</p>
+
 	<hr style="border:3px solid #f1f1f1">
 
 	<div class="row">
@@ -32,18 +90,18 @@
 			</div>
 		</div>
 		<div class="side right">
-			<div>150</div>
+			<div>${reviewList.fiveStarCount}</div>
 		</div>
 		<div class="side">
 			<div>4 star</div>
 		</div>
 		<div class="middle">
 			<div class="bar-container">
-				<div class="bar-4"></div>
+				<div class="bar-4" style=width:10%></div>
 			</div>
 		</div>
 		<div class="side right">
-			<div>63</div>
+			<div>${reviewList.fourStarCount}</div>
 		</div>
 		<div class="side">
 			<div>3 star</div>
@@ -54,7 +112,7 @@
 			</div>
 		</div>
 		<div class="side right">
-			<div>15</div>
+			<div>${reviewList.threeStarCount}</div>
 		</div>
 		<div class="side">
 			<div>2 star</div>
@@ -65,7 +123,7 @@
 			</div>
 		</div>
 		<div class="side right">
-			<div>6</div>
+			<div>${reviewList.twoStarCount}</div>
 		</div>
 		<div class="side">
 			<div>1 star</div>
@@ -76,13 +134,14 @@
 			</div>
 		</div>
 		<div class="side right">
-			<div>20</div>
+			<div>${reviewList.oneStarCount}</div>
 		</div>
 	</div>
 	<form action="CreateReview">
 		<div class="center">
-  		<button type="submit" class="component-btn">Write Review for product ${productID}</button>
-  		<input type="hidden" name="prodID" value="${productID}">
+			<button type="submit" class="component-btn">Write Review for
+				product ${productID }</button>
+			<input type="hidden" name="prodID" value="${productID}">
 		</div>
 	</form>
 </body>
