@@ -6,17 +6,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import model.Product;
 import model.Review;
+import model.ReviewList;
 
 /**
  * Servlet implementation class RetrieveReview
@@ -69,7 +65,7 @@ public class RetrieveReview extends HttpServlet {
 			Statement statement = connection.createStatement();
 			newReview.setProductID(request.getParameter("prodID"));
 			ResultSet rs = statement.executeQuery("Select * from reviews where productID = '" + newReview.getProductID() + "'");	
-			var rL = new reviewList(); 
+			var rL = new ReviewList(); 
 			rL.readReviews(rs);
 		
 			request.setAttribute("productID", newReview.getProductID());
@@ -79,7 +75,11 @@ public class RetrieveReview extends HttpServlet {
 			e.printStackTrace();
 		}catch (java.lang.NumberFormatException e) {
 			log(e.getMessage());
-		}	
-		request.getRequestDispatcher("review.jsp").forward(request, response);
+		}
+		
+		if(request.getParameter("selectProd") != null) {
+			request.getRequestDispatcher("processor.jsp").forward(request, response);
+		}else
+			request.getRequestDispatcher("review.jsp").forward(request, response);
 	}
 }

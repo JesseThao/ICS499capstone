@@ -6,7 +6,13 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/review.css" />
-
+<style>
+.bar-5 {width: ${reviewList.fiveStarWidth}%;}
+.bar-4 {width: ${reviewList.fourStarWidth}%;}
+.bar-3 {width: ${reviewList.threeStarWidth}%;}
+.bar-2 {width: ${reviewList.twoStarWidth}%;}
+.bar-1 {width: ${reviewList.oneStarWidth}%;}
+</style>
 <!-- Font Awesome Icon Library -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -97,7 +103,7 @@
 		</div>
 		<div class="middle">
 			<div class="bar-container">
-				<div class="bar-4" style=width:10%></div>
+				<div class="bar-4"></div>
 			</div>
 		</div>
 		<div class="side right">

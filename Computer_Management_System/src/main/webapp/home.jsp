@@ -27,7 +27,7 @@
 		<tr class="items">
 			<td scope="row" class="component">Processor</td>		
 			<td class="select-comp" colspan="4">
-					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
+					<input type="submit" name="selectProd" value=" + Add Component" class="btn btn-primary component-btn" />
 					<input type="hidden" name="prodType" value="Processor">				
 			</td>
 		</tr>
