@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Product;
+import model.ReviewList;
 
 
 /**
@@ -50,16 +51,24 @@ public class RetrieveProduct extends HttpServlet {
 			Statement statement = connection.createStatement();		
 			String productType = request.getParameter("prodType");
 			ResultSet rs = statement.executeQuery("Select * from products where productType = '" + productType + "'");
-			Product product = new Product();
-			
-			
+			Product product = new Product();			
 			ArrayList<Product> products = product.getList(rs, productType);
+			ArrayList<ReviewList> reviewListArray = new ArrayList<ReviewList>();
+			
+			for(int i=0; i< products.size(); i++) {
+				ResultSet rs2 = statement.executeQuery("Select * from reviews where productID = '" + products.get(i).getProductID() + "'");
+				ReviewList rL = new ReviewList();
+				rL.readReviews(rs2);
+				reviewListArray.add(rL);
+			}
 			
 			request.setAttribute("products", products);
+			request.setAttribute("reviewList", reviewListArray);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 		request.getRequestDispatcher("processor.jsp").forward(request, response);
 	}
 	public void destroy(){

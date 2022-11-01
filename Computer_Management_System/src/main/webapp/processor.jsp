@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -9,38 +10,42 @@
 <script src="https://kit.fontawesome.com/887323dcd1.js"
 	crossorigin="anonymous"></script>
 
-
 <title>Computer Hardware Management System</title>
 </head>
 
 <body>
 	<%@ include file="header.jsp"%>
-	
-	<table id="products">
-		<tr>
-			<th>Product</th>
-			<th>Review</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Link</th>
-		</tr>
-		<c:forEach items="${products}" var="product" varStatus="stat">
-		<tr class="items">
-			<td>${product.productID}</td>
-			<form action="RetrieveReview">
-			<td width="10%">
-				<input type="submit" value=" see rating" class="btn btn-primary component-btn" />
-				<input type="hidden" name="prodID" value="${product.productID}">
-			</form>
-			</td>
-			<td>${product.description}</td>
-			<td>${product.price}</td>
-			<td width="5%"><a href="https://a.co/d/4m9HHMG"><i
-					class="fa-solid fa-link fa-lg"></i></a></td>
-		</tr>
-		</c:forEach>
-	</table>
 
+		<table id="products">
+			<tr>
+				<th>Product</th>
+				<th>Review</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Link</th>
+			</tr>
+			<c:forEach items="${products}" var="product" varStatus="stat">
+				<c:forEach items="${reviewList }" var="reviewList" varStatus="stat2">
+					<c:set var="avgRate" value="${reviewList.averageRating}" />
+					<fmt:formatNumber type="number" var="avgRate" maxFractionDigits="1"
+						value="${reviewList.averageRating}" />
+				</c:forEach>
+				
+					<tr class="items">
+						<td><a href="">${product.productID}</a></td>
+						<form action="RetrieveReview">
+							<td width="10%"><input type="submit" value="${avgRate}"
+								class="btn btn-primary component-btn" /> <input type="hidden"
+								name="prodID" value="${product.productID}">
+						</form>
+						</td>
+						<td>${product.description}</td>
+						<td>${product.price}</td>
+						<td width="5%"><a href="https://a.co/d/4m9HHMG"><i
+								class="fa-solid fa-link fa-lg"></i></a></td>
+					</tr>				
+			</c:forEach>
+		</table>
 	<br />
 	<div class="footer">Copyright 2022 All Rights Reserved.</div>
 </body>

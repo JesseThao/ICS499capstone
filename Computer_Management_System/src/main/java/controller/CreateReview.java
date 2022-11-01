@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Review;
+import model.reviewList;
 
 /**
  * Servlet implementation class CreateReview
@@ -59,37 +60,50 @@ public class CreateReview extends HttpServlet {
 
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT MAX(id)FROM reviews");
-			
+			Review newReview = new Review();
+			newReview.setProductID(request.getParameter("prodID"));
+			ResultSet rs2 = statement.executeQuery("Select * from reviews where productID = '" + newReview.getProductID() + "'");
+						
+			var rL = new reviewList(); 
+			rL.readReviews(rs2);
+			request.setAttribute("reviewList", rL);
+			request.setAttribute("productID", productID);
+				
 			if(!request.getParameter("rating").isBlank()) {
-
 				try {
-					Review newReview = new Review().getReview(rs);
-					int nextKey = newReview.getKey() + 1;
+					Statement statementAdd = connection.createStatement();
+					ResultSet rs = statementAdd.executeQuery("SELECT MAX(id)FROM reviews");
+										
+					Review reviewKey = new Review().getReview(rs);
+					int nextKey = reviewKey.getKey() + 1;
 					int rating = Integer.parseInt(request.getParameter("rating"));
-					int result = statement.executeUpdate("insert into reviews values('" + nextKey + "', '" + productID
+					int result = statementAdd.executeUpdate("insert into reviews values('" + nextKey + "', '" + productID
 							+ "','" + rating + "','" + comment + "')");
 					if (result > 0) {
-						// RequestDispatcher dispatcher =
-						// request.getRequestDispatcher("writeReview.jsp");
-						// dispatcher.forward(request, response);
 						msg = "Thank you for your review";
 
 					} else {
 						msg = "There was an issue creating your review, please try again later";
 					}
-				} catch (java.lang.NumberFormatException e) {
+				}catch (java.lang.NumberFormatException e) {
 					log(e.getMessage());
 				} 
 			}
+			
+			
+			request.setAttribute("productID", productID);
+			request.setAttribute("message", msg);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (java.lang.NullPointerException e) {
 			e.printStackTrace();
+		}catch (java.lang.NumberFormatException e) {
+			log(e.getMessage());
 		}
+		
 
-		request.setAttribute("productID", productID);
-		request.setAttribute("message", msg);
+
 		request.getRequestDispatcher("writeReview.jsp").forward(request, response);
 	}
 
