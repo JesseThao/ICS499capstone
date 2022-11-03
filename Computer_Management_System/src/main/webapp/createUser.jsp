@@ -6,9 +6,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/base.css" />
-<link rel="stylesheet" type="text/css" href="css/login.css"/>
+<link rel="stylesheet" type="text/css" href="css/login.css" />
+<link rel="stylesheet" type="text/css" href="css/createUserStyle.css" />
 <script src="https://kit.fontawesome.com/887323dcd1.js"
 	crossorigin="anonymous"></script>
+
+
 <title>Create User Result</title>
 </head>
 <body>
@@ -31,28 +34,69 @@
 		</tr>
 	</table>
 	<h1>User Registration:</h1>
-	<form id="login" method="post" action="CreateUser">
-		<table>
-			<tr>
-				<td>First Name:</td>
-				<td><input name="firstName" /></td>
-			</tr>
-			<tr>
-				<td>Last Name :</td>
-				<td><input name="lastName" /></td>
-			</tr>
-			<tr>
-				<td>Email:</td>
-				<td><input name="email" /></td>
-			</tr>
-			<tr>
-				<td>Password:</td>
-				<td><input name="password" type="password" /></td>
-			</tr>
-			<tr>
-				<td />
-				<td><input type="submit" value="Add" /></td>
-		</table>
+	<form id="register" onsubmit="checkOnSubmit()" method="post" action="CreateUser">
+		<div class="element">
+			<div id="table1">
+				<table>
+					<tr>
+						<td>First Name:</td>
+					</tr>
+					<tr>
+						<td><input type="text" name="firstName" value="" id="firstname"/></td>
+					</tr>
+					<tr></tr>
+					<tr>
+						<td>Last Name:</td>
+					</tr>
+					<tr>
+						<td><input type="text" name="lastName" value="" id="lastname"/></td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+					</tr>
+					<tr>
+						<td><input type="text" name="email" value="" id="email"/></td>
+					</tr>
+					<tr>
+						<td>Password:</td>
+					</tr>
+					<tr>
+						<td><input type="password" name="password" value="" id="pwd" />
+							<div id="pwd-toggle">
+								<i class="fa-solid fa-eye"></i> <i class="fa-solid fa-eye-slash"></i>
+							</div></td>
+					</tr>
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="SIGN UP"></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="table2">
+				<table>
+					<tr>
+						<td>Password Requirement</td>
+					</tr>
+					<tr>
+						<td id="upper"><i class="fa-solid fa-x"></i><FONT COLOR=red> Upper-case</td>
+					</tr>
+					<tr>
+						<td id="lower"><i class="fa-solid fa-x"></i><FONT COLOR=red> Lower-case</td>
+					</tr>
+					<tr>
+						<td id="number"><i class="fa-solid fa-x"></i><FONT COLOR=red> Number</td>
+					</tr>
+					<tr>
+						<td id="length"><i class="fa-solid fa-x"></i><FONT COLOR=red> At least 8
+							characters</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 	</form>
+	<script src="js/createUserMod.js"></script>
 </body>
 </html>
