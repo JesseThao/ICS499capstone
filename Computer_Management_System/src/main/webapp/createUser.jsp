@@ -11,7 +11,6 @@
 <script src="https://kit.fontawesome.com/887323dcd1.js"
 	crossorigin="anonymous"></script>
 
-
 <title>Create User Result</title>
 </head>
 <body>
@@ -70,7 +69,7 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td><input type="submit" value="SIGN UP"></td>
+						<td><input type="submit" value="Sign Up"></td>
 					</tr>
 				</table>
 			</div>
