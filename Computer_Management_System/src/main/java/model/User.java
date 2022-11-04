@@ -13,6 +13,10 @@ public class User implements Serializable {
 		this.lastName = lastName;
 		this.emailAddress = emailAddress;
 	}
+
+	public User() {
+		super();
+	}
 	
 	public String getFirstName() {
 		return firstName;

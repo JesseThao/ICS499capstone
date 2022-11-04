@@ -1,8 +1,11 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Product implements Serializable {
@@ -15,6 +18,8 @@ public class Product implements Serializable {
 	private Double price;
 	private String brand;
 	private String model;
+	private Double reviewAverage;
+	private Connection connection;
 	
 	public String getBrand() {
 		return brand;
@@ -71,5 +76,25 @@ public class Product implements Serializable {
 	public void setProductType(String productType) {
 		this.productType = productType;
 	}
-		
+	public Double getReviewAverage() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connection = DriverManager.getConnection("jdbc:mysql://cmhs.cdrxbvksu13u.us-east-1.rds.amazonaws.com/cmhs", "admin", "IW2Radlf!");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		Statement statement;
+		try {
+			statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("Select * from reviews where productID = '" + getProductID() + "'");
+			ReviewList rL = new ReviewList();
+			rL.readReviews(rs);	
+			reviewAverage = rL.getAverageRating();	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reviewAverage;	
+	}
 }

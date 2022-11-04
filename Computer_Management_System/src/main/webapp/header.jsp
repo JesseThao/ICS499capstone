@@ -9,7 +9,6 @@
 <script src="https://kit.fontawesome.com/887323dcd1.js"
 	crossorigin="anonymous"></script>
 
-
 <title>Computer Hardware Management System</title>
 </head>
 

@@ -55,13 +55,6 @@ public class RetrieveProduct extends HttpServlet {
 			ArrayList<Product> products = product.getList(rs, productType);
 			ArrayList<ReviewList> reviewListArray = new ArrayList<ReviewList>();
 			
-			for(int i=0; i< products.size(); i++) {
-				ResultSet rs2 = statement.executeQuery("Select * from reviews where productID = '" + products.get(i).getProductID() + "'");
-				ReviewList rL = new ReviewList();
-				rL.readReviews(rs2);
-				reviewListArray.add(rL);
-			}
-			
 			request.setAttribute("products", products);
 			request.setAttribute("reviewList", reviewListArray);
 			
