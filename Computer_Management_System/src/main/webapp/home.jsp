@@ -55,7 +55,7 @@
 			<td scope="row" class="component">Graphics Card</td>		
 			<td class="select-comp" colspan="4">
 					<input type="submit" value=" + Add Component" class="btn btn-primary component-btn" />
-					<input type="hidden" name="prodType" value="Graphics Card">				
+					<input type="hidden" name="prodType" value="Graphic Card">				
 			</td>
 		</tr>
 	</form>	

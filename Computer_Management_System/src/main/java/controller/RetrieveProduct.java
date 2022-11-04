@@ -62,7 +62,7 @@ public class RetrieveProduct extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.getRequestDispatcher("processor.jsp").forward(request, response);
+		request.getRequestDispatcher("product.jsp").forward(request, response);
 	}
 	public void destroy(){
 		try {
