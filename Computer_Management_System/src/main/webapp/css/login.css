@@ -1,6 +1,5 @@
 @charset "ISO-8859-1";
-H3
-{ text-align: center; }
+
 #login{
 	font-family: Verdana;
 	border-collapse: collapse;
@@ -10,5 +9,23 @@ H3
   	border-collapse: collapse;
     border-radius: 15px;
     overflow:hidden
+}
+
+#table1{
+	flex: 50%;
+	padding: 5px;
+}
+
+
+#table1 td{
+	padding:10px;
+}
+
+
+#table1 input{
+	height: 25px;
+	width: 300px;
+	font-size: 12pt;
+
 }
 
