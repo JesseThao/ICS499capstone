@@ -90,18 +90,20 @@ public class ReviewList implements Serializable {
 	}
 
 	public void readReviews(ResultSet rs) {
-		Review newReview = new Review();
+		
 		try {
 			while (rs.next()) {
+				Review newReview = new Review();
 				newReview.setKey(rs.getInt(1));
 				newReview.setProductID(rs.getString(2));
 				newReview.setRating(rs.getInt(3));
 				setRatingCount(newReview.getRating());
 				newReview.setComment(rs.getString(4));
-				System.out.print(newReview.toString());
-				setReviewList(newReview);
+				reviewList.add(newReview);
+				//setReviewList(newReview);				
 			}
 			setWidth();
+			System.out.print("review list array: " + reviewList.toString());
 
 		} catch (SQLException e) {
 			e.printStackTrace();

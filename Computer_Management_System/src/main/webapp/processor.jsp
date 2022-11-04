@@ -24,17 +24,13 @@
 				<th>Price</th>
 				<th>Link</th>
 			</tr>
-			<c:forEach items="${products}" var="product" varStatus="stat">
-				<c:forEach items="${reviewList }" var="reviewList" varStatus="stat2">
-					<c:set var="avgRate" value="${reviewList.averageRating}" />
-					<fmt:formatNumber type="number" var="avgRate" maxFractionDigits="1"
-						value="${reviewList.averageRating}" />
-				</c:forEach>
+			<c:forEach items="${products}" var="product" varStatus="stat">	
 				
+				<fmt:formatNumber type="number" var="avgRate" maxFractionDigits="1" value="${product.reviewAverage}" />			
 					<tr class="items">
 						<td><a href="">${product.productID}</a></td>
 						<form action="RetrieveReview">
-							<td width="10%"><input type="submit" value="${avgRate}"
+							<td width="10%"><input type="submit" value="${avgRate} star"
 								class="btn btn-primary component-btn" /> <input type="hidden"
 								name="prodID" value="${product.productID}">
 						</form>
