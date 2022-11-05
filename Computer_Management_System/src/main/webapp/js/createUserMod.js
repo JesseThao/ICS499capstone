@@ -1,4 +1,3 @@
-/**/
 let pass = document.getElementById("pwd");
 
 function passRequirement(password) {
@@ -35,21 +34,29 @@ function passRequirement(password) {
 
 
 function checkOnSubmit(){
-	let fn = document.getElementById("firstname");
-	let ln = document.getElementById("lastname");
-	let email = document.getElementById("email");
+	let form = document.getElementById("register");
+	let password = pass.value;
 	
-	if(fn.value == "" || ln.value == ""|| email.value == ""){
-		event.preventDefault();
+	for (let i = 0; i<pass.value.length(); i++){
+		if (password.length > 7){
+			if(password[i].match(/[A-Z]+/) || password[i].match(/[a-z]+/) || password[i].match(/[0-9]+/)){
+				form.submit();
+			}
+		}
 	}
-	
-	if(pass.value.match(/[A-Z]/) && pass.value.match(/[a-z]/) && pass.value.match(/[0-9]/) && pass.value.length > 7){
 
-	}else {
-		event.preventDefault();
-	}
 }
 
+function togglePDW(val){
+	let passType = document.getElementById("pwd");
+	
+	if(("'"+val+"'").match('show')){
+		passType.setAttribute("type", "text");
+	}else{
+		passType.setAttribute("type", "password");
+	}
+		
+}
 
 pass.addEventListener("keyup", function(){
 	passRequirement(pass.value);

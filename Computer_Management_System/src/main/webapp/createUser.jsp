@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/base.css" />
 <link rel="stylesheet" type="text/css" href="css/login.css" />
-<link rel="stylesheet" type="text/css" href="css/createUserStyle.css" />
+<link rel="stylesheet" type="text/css" href="css/test.css" />
 <script src="https://kit.fontawesome.com/887323dcd1.js"
 	crossorigin="anonymous"></script>
 
@@ -32,70 +31,90 @@
 			</td>
 		</tr>
 	</table>
-	<h1>User Registration:</h1>
-	<form id="register" onsubmit="checkOnSubmit()" method="post" action="CreateUser">
-		<div class="element">
-			<div id="table1">
-				<table>
-					<tr>
-						<td>First Name:</td>
-					</tr>
-					<tr>
-						<td><input type="text" name="firstName" value="" id="firstname"/></td>
-					</tr>
-					<tr></tr>
-					<tr>
-						<td>Last Name:</td>
-					</tr>
-					<tr>
-						<td><input type="text" name="lastName" value="" id="lastname"/></td>
-					</tr>
-					<tr>
-						<td>Email:</td>
-					</tr>
-					<tr>
-						<td><input type="text" name="email" value="" id="email"/></td>
-					</tr>
-					<tr>
-						<td>Password:</td>
-					</tr>
-					<tr>
-						<td><input type="password" name="password" value="" id="pwd" />
-							<div id="pwd-toggle">
-								<i class="fa-solid fa-eye"></i> <i class="fa-solid fa-eye-slash"></i>
-							</div></td>
-					</tr>
-					<tr>
-						<td></td>
-					</tr>
-					<tr>
-						<td><input type="submit" value="Sign Up"></td>
-					</tr>
-				</table>
-			</div>
-
-			<div class="table2">
-				<table>
-					<tr>
-						<td>Password Requirement</td>
-					</tr>
-					<tr>
-						<td id="upper"><i class="fa-solid fa-x"></i><FONT COLOR=red> Upper-case</td>
-					</tr>
-					<tr>
-						<td id="lower"><i class="fa-solid fa-x"></i><FONT COLOR=red> Lower-case</td>
-					</tr>
-					<tr>
-						<td id="number"><i class="fa-solid fa-x"></i><FONT COLOR=red> Number</td>
-					</tr>
-					<tr>
-						<td id="length"><i class="fa-solid fa-x"></i><FONT COLOR=red> At least 8
-							characters</td>
-					</tr>
-				</table>
-			</div>
+		<div id="info">
+			<table>
+				<tr>
+					<th id="page-header">User Registration</th>
+				</tr>
+				<tr>
+					<td>
+						<table id="table1">
+							<tr>
+								<td>
+									<form id="register" method="post" action="CreateUser">
+									<table>
+										<tr>
+											<td>First Name:</td>
+										</tr>
+										<tr>
+											<td><input type="text" name="firstName" value=""
+												id="inputFN" required/></td>
+										</tr>
+										<tr></tr>
+										<tr>
+											<td>Last Name:</td>
+										</tr>
+										<tr>
+											<td><input type="text" name="lastName" value=""
+												id="inputLN" required/></td>
+										</tr>
+										<tr>
+											<td>Email:</td>
+										</tr>
+										<tr>
+											<td><input type="text" name="email" value=""
+												id="inputEmail" required/></td>
+										</tr>
+										<tr>
+											<td>Password:</td>
+										</tr>
+										<tr>
+											<td><input type="password" name="password" value="" id="pwd" required/><td>
+												<div id="pwd-toggle">
+														<i class="fa-solid fa-eye" id="show" onclick="togglePDW(this.id)"></i>
+														<i class="fa-solid fa-eye-slash" id="hide" onclick="togglePDW(this.id)"></i>
+												</div>
+											</td>
+										</tr>
+										
+										<tr>
+											<td></td>
+										</tr>
+									</table>
+									</form>
+								</td>
+								<td>
+									<table>
+										<tr>
+											<td>Password Requirement</td>
+										</tr>
+										<tr>
+											<td id="upper"><i class="fa-solid fa-x"></i><FONT
+												COLOR=red> Upper-case</FONT></td>
+										</tr>
+										<tr>
+											<td id="lower"><i class="fa-solid fa-x"></i><FONT
+												COLOR=red> Lower-case</FONT></td>
+										</tr>
+										<tr>
+											<td id="number"><i class="fa-solid fa-x"></i><FONT
+												COLOR=red> Number</FONT></td>
+										</tr>
+										<tr>
+											<td id="length"><i class="fa-solid fa-x"></i><FONT
+												COLOR=red> At least 8 characters</FONT></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td><button onclick="checkOnSubmit()" value="SIGN UP" id="submit">Click me</button></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
 		</div>
-	</form>
 	<script src="js/createUserMod.js"></script>
 </body>
 </html>
