@@ -53,7 +53,7 @@ public class adminLogin extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://cmhs.cdrxbvksu13u.us-east-1.rds.amazonaws.com/cmhs", "admin", "IW2Radlf!");
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("select email, password from user where email = '"+email+"' and password = '"+password+"'");
+			ResultSet rs = stmt.executeQuery("select email, password from admin where email = '"+email+"' and password = '"+password+"'");
 			
 			if(rs.next()) {
 				HttpSession session = request.getSession();
