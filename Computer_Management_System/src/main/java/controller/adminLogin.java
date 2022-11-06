@@ -54,13 +54,16 @@ public class adminLogin extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://cmhs.cdrxbvksu13u.us-east-1.rds.amazonaws.com/cmhs", "admin", "IW2Radlf!");
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("select email, password from admin where email = '"+email+"' and password = '"+password+"'");
+			HttpSession session = request.getSession();
 			
 			if(rs.next()) {
-				HttpSession session = request.getSession();
 				session.setAttribute("email", email);
-				response.sendRedirect("adminHomepage.jsp");
+				//response.sendRedirect("adminHomepage.jsp");
+				session.setAttribute("success", "true");
+				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);	
 			}else {
 				out.println("Wrong username or password");
+				session.setAttribute("success", "false");
 			}
 			
 			

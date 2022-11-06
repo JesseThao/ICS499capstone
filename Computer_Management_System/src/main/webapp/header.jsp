@@ -35,7 +35,7 @@
 									class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
 						</c:otherwise>
 					</c:choose>
-
+					<li><a href="myProfile.jsp" title="user"><i class="fa-regular fa-circle-user fa-lg"></i></a></li>
 				</ul>
 			</td>
 		</tr>

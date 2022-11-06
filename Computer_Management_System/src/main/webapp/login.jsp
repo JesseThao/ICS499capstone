@@ -14,24 +14,7 @@
 <title>Computer Hardware Management System</title>
 </head>
 <body>
-	<table id="header">
-		<tr>
-			<td><img src="images/logo3.png"
-				alt="Computer Hardware Management System" /></td>
-		</tr>
-		<tr>
-			<td>
-				<ul>
-					<li><a href="home.jsp" title="Home"><i
-							class="fa-solid fa-house fa-lg"></i></a></li>
-					<li><a href="login.jsp" title="Log-in"><i
-							class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></a></li>
-					<li><a href="save.jsp" title="Save"><i
-							class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
-				</ul>
-			</td>
-		</tr>
-	</table>
+	<%@ include file="header.jsp"%>
 	<h1>Sign in</h1>
 		<center>
 	<form action="userLogin" method="post">
@@ -59,12 +42,14 @@
 					<tr>
 					<td><a href="createUser.jsp">Create an account?</a></td>
 					</tr>
+					<tr>
+					<td><a href="adminLogin.jsp">Administrator login</a></td>
+					</tr>
 				</table>
 			</div>
+		</div>
 	</form>
 	</center>
-	</pre>
 	<br /><div class="footer">Copyright 2022 All Rights Reserved.</div>
-	<td><a href="http://localhost:8081/Computer_Management_System/adminLogin.jsp">admin login</a></td>
 </body>
 </html>
