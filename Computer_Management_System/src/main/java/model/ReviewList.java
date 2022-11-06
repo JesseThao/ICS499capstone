@@ -100,7 +100,6 @@ public class ReviewList implements Serializable {
 				setRatingCount(newReview.getRating());
 				newReview.setComment(rs.getString(4));
 				reviewList.add(newReview);
-				//setReviewList(newReview);				
 			}
 			setWidth();
 			System.out.print("review list array: " + reviewList.toString());
