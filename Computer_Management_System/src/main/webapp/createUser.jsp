@@ -5,8 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/base.css" />
-<link rel="stylesheet" type="text/css" href="css/login.css" />
-<link rel="stylesheet" type="text/css" href="css/test.css" />
+<link rel="stylesheet" type="text/css" href="css/user.css" />
 <script src="https://kit.fontawesome.com/887323dcd1.js"
 	crossorigin="anonymous"></script>
 
@@ -32,9 +31,9 @@
 		</tr>
 	</table>
 		<div id="info">
-			<table>
+			<table id="table0">
 				<tr>
-					<th id="page-header">User Registration</th>
+					<th id="profile-header">User Registration</th>
 				</tr>
 				<tr>
 					<td>
@@ -42,7 +41,7 @@
 							<tr>
 								<td>
 									<form id="register" method="post" action="CreateUser">
-									<table>
+									<table id="table2">
 										<tr>
 											<td>First Name:</td>
 										</tr>
@@ -84,7 +83,7 @@
 									</form>
 								</td>
 								<td>
-									<table>
+									<table id="table3">
 										<tr>
 											<td>Password Requirement</td>
 										</tr>
@@ -102,13 +101,13 @@
 										</tr>
 										<tr>
 											<td id="length"><i class="fa-solid fa-x"></i><FONT
-												COLOR=red> At least 8 characters</FONT></td>
+												COLOR=red> 8 characters</FONT></td>
 										</tr>
 									</table>
 								</td>
 							</tr>
 							<tr>
-								<td><button onclick="checkOnSubmit()" value="SIGN UP" id="submit">Click me</button></td>
+								<td><button onclick="checkOnSubmit()" id="submit-btn">SIGN UP</button></td>
 							</tr>
 						</table>
 					</td>
