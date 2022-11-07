@@ -1,0 +1,91 @@
+td {
+	vertical-align:top;
+}
+
+#info table, #info th, #info td{
+	/* border: 1px solid black; */
+	
+}
+
+#profile-header {
+    background-color: #1d3f66;
+    color: #fff;
+    font-size: 26px;
+    height: 100px;
+    width: 200;
+}
+
+
+#info table {
+	margin-left: auto;
+ 	margin-right: auto;
+}
+
+#info {
+	position:relative;
+	top:100px;
+}
+
+#table0 {
+	border: 5px solid black;
+	border-color: #1d3f66;
+	border-radius: 15px;
+	border-spacing: 0;
+	height:500px;
+	width:1000px;
+}
+
+#table1 {
+	height:500px;
+	width:800px;
+	text-align:left;
+}
+
+#table2{
+	height:10px;
+	width:80px;
+	border-spacing: 10px;
+}
+
+#bio {
+	border-width:3px;
+	border-style:solid;
+	border-radius: 10px;
+	border-color:gray;
+	width: 500px;
+	height: 100px;
+	padding: 2px 10px;
+	resize: none
+}
+
+#bioTable{
+	position:relative;
+	right:200px;
+}
+
+#submit-btn{
+    color: #fff;
+    background-color: #1d3f66;
+    cursor:pointer;
+}
+
+#inputFN, #inputLN, #inputEmail, #pwd {
+	border-width:3px;
+	border-style:solid;
+	border-radius: 10px;
+	border-color:gray;
+	width: 300px;
+	height: 30px;
+	padding: 2px 4px;
+}
+
+#myImage{
+	border: 1px solid black;
+	width: 400px;
+	height: 300px;
+}
+
+
+#pwd-toggle {
+	cursor:pointer;
+}

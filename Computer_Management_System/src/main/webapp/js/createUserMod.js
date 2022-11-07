@@ -25,9 +25,9 @@ function passRequirement(password) {
 	}
 	
 	if(password.length > 7){
-		length.innerHTML= '<i class="fa-solid fa-check"></i> At least 8 characters';
+		length.innerHTML= '<i class="fa-solid fa-check"></i> 8 characters';
 	}else{
-		length.innerHTML= '<i class="fa-solid fa-x"></i><FONT COLOR=red> At least 8 characters';
+		length.innerHTML= '<i class="fa-solid fa-x"></i><FONT COLOR=red> 8 characters';
 	}
 	
 }
@@ -36,12 +36,15 @@ function passRequirement(password) {
 function checkOnSubmit(){
 	let form = document.getElementById("register");
 	let password = pass.value;
-	
-	for (let i = 0; i<pass.value.length(); i++){
+	let valid = 0;
+	for (let i = 0; i<password.length; i++){
 		if (password.length > 7){
-			if(password[i].match(/[A-Z]+/) || password[i].match(/[a-z]+/) || password[i].match(/[0-9]+/)){
-				form.submit();
+			if(password[i].match(/[A-Z]/) || password[i].match(/[a-z]/) || password[i].match(/[0-9]/)){
+				valid++;
 			}
+		}
+		if(valid == password.length){
+			form.submit();
 		}
 	}
 

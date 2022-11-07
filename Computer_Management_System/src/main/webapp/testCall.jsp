@@ -7,10 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="get" action="TestCallout">
+	<form id="profile" method="get" action="MyProfile">
 		<table>
-			<tr><td><input type="text" name="email" value="bx@gmail.com"/><br><input type="submit" value="My Profile"/></td></tr>
+			<tr>Test MyProfile<td><input type="text" value="bxbx@gmail.com" name="email"/></td></tr>
 		</table>
 	</form>
+	<button onclick="checkOnSubmit1()" id="submit-btn">SIGN UP</button>
+	
+	<form id="product" method="get" action="ProductInfo">
+		<table>
+			<tr>Test ProductInfo<td><input type="text" value="P000001" name="product"/></td></tr>
+		</table>
+	</form>
+	<button onclick="checkOnSubmit2()" id="submit-btn">SIGN UP</button>
+	<script src="js/testMod.js"></script>
 </body>
 </html>
