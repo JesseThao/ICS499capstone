@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -36,15 +35,15 @@ public class MyProfile extends HttpServlet {
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
-
+		
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select firstName,lastName from user where email='"+email+"'");
 			if (rs.next()) {
-				String firstName = rs.getString(1);
-				String lastName = rs.getString(2);
-				request.setAttribute("firstName", firstName);
-				request.setAttribute("lastName", lastName);
+				String firstname = rs.getString(1);
+				String lastname = rs.getString(2);
+				request.setAttribute("firstname", firstname);
+				request.setAttribute("lastname", lastname);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("myProfile.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -57,7 +56,7 @@ public class MyProfile extends HttpServlet {
 	}
 
 	
-	public void destroy(){
+	public void destroty(){
 		try {
 			connection.close();
 		} catch (SQLException e) {

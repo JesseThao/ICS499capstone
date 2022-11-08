@@ -29,7 +29,7 @@
 			</td>
 		</tr>
 	</table>
-	<form method="post" action="UpdateProfile">
+	<form method="post" action="UpdateUser">
 		<div id="info">
 			<table id="table0">
 				<tr>
@@ -55,13 +55,7 @@
 										</tr>
 										<tr>
 											<td><input type="text" name="firstName"
-												value="<% String firstName =(String) request.getParameter("firstName");
-														if(firstName == null){
-															firstName = (String) request.getAttribute("firstName"); out.print(firstName);
-														}else{
-															out.print(firstName);
-														}
-														%>"
+												value="<%String firstName = (String) request.getAttribute("firstname"); out.print(firstName);%>"
 												id="inputFN" /></td>
 										</tr>
 										<tr>
@@ -70,7 +64,7 @@
 										<tr>
 											<td><input type="text" name="email"
 												value="<%String email = (String) request.getParameter("email"); out.print(email);%>"
-												id="inputEmail" readonly/></td>
+												id="inputEmail" disabled /></td>
 										</tr>
 									</table>
 								</td>
@@ -81,13 +75,7 @@
 										</tr>
 										<tr>
 											<td><input type="text" name="lastName"
-												value="<% String lastName =(String) request.getParameter("lastName");
-														if(lastName == null){
-															lastName = (String) request.getAttribute("lastName"); out.print(lastName);
-														}else{
-															out.print(lastName);
-														}
-														%>"
+												value="<%String lastName = (String) request.getAttribute("lastname"); out.print(lastName);%>"
 												id="inputLN" /></td>
 										</tr>
 									</table>
@@ -110,7 +98,7 @@
 										</tr>
 									</table>
 								</td>
-								<td class="update-btn"><input type="submit" value="UPDATE" name="update" /></td>
+								<td class="update-btn"><input type="submit" value="UPDATE"id="update" /></td>
 							</tr>
 						</table>
 					</td>

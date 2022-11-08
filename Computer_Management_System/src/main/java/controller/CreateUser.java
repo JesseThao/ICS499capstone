@@ -31,7 +31,9 @@ public class CreateUser extends HttpServlet {
 		}
 			
 	}
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String firstName = request.getParameter("firstName");
@@ -55,7 +57,7 @@ public class CreateUser extends HttpServlet {
 		}
 	}
 	
-	public void destroy(){
+	public void destroty(){
 		try {
 			connection.close();
 		} catch (SQLException e) {

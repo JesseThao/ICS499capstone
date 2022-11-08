@@ -54,7 +54,7 @@ public class CreateUserList extends HttpServlet {
 	}
 	
 
-	public void destroy(){
+	public void destroty(){
 		try {
 			connection.close();
 		} catch (SQLException e) {
