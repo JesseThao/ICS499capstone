@@ -9,3 +9,10 @@ function checkOnSubmit2(){
 	form.submit();
 
 }
+
+function checkOnSubmit3(){
+
+	let form = document.getElementById("test");
+	form.submit();
+
+}

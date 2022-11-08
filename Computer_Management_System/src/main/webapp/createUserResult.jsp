@@ -11,7 +11,10 @@
 
 <%@ include file="createUser.jsp" %>
 
+
 <h1>Account created successfully</h1>
+
+
 
 </body>
 </html>

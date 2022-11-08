@@ -58,7 +58,7 @@ public class TestCallout extends HttpServlet {
 		}
 	}
 	
-	public void destroty(){
+	public void destroy(){
 		try {
 			connection.close();
 		} catch (SQLException e) {

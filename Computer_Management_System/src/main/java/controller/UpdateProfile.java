@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -15,10 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-@WebServlet("/MyProfile")
-public class MyProfile extends HttpServlet {
+/**
+ * Servlet implementation class UpdateProfile
+ */
+@WebServlet("/UpdateProfile")
+public class UpdateProfile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection connection;
     
@@ -34,28 +34,30 @@ public class MyProfile extends HttpServlet {
 		}
 			
 	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
 
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String firstName = request.getParameter("firstName");
+		String lastName =request.getParameter("lastName");
+		String email =request.getParameter("email");
+		PrintWriter out = response.getWriter();
+		out.print("hi");
+		
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select firstName,lastName from user where email='"+email+"'");
-			if (rs.next()) {
-				String firstName = rs.getString(1);
-				String lastName = rs.getString(2);
-				request.setAttribute("firstName", firstName);
-				request.setAttribute("lastName", lastName);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("myProfile.jsp");
+			int result = statement.executeUpdate("UPDATE user SET firstName='"+firstName+"', lastName='"+lastName+"' WHERE email='"+email+"'");
+			
+			if(result > 0) {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("myProfileResult.jsp");
 				dispatcher.forward(request, response);
+			}else {
+				System.out.println("Error Updating Profile");
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		
 	}
-
 	
 	public void destroy(){
 		try {
