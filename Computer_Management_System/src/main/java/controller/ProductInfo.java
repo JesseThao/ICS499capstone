@@ -38,19 +38,7 @@ public class ProductInfo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String product = request.getParameter("product");
-		PrintWriter out = response.getWriter();
-		out.print("<table>");
-		out.print("<tr>");
-		out.print("<th>");
-		out.print(product);
-		out.print("</th>");
-		out.print("<th>");
-		out.print("Last Name");
-		out.print("</th>");
-		out.print("<th>");
-		out.print("Email");
-		out.print("</th>");
-		out.print("</tr>");
+
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select productType from products where productID='"+product+"'");
@@ -86,7 +74,7 @@ public class ProductInfo extends HttpServlet {
 	}
 	
 
-	public void destroty(){
+	public void destroy(){
 		try {
 			connection.close();
 		} catch (SQLException e) {

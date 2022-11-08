@@ -12,14 +12,14 @@
 			<tr>Test MyProfile<td><input type="text" value="bxbx@gmail.com" name="email"/></td></tr>
 		</table>
 	</form>
-	<button onclick="checkOnSubmit1()" id="submit-btn">SIGN UP</button>
+	<button onclick="checkOnSubmit1()" id="submit-btn">SUBMIT</button>
 	
 	<form id="product" method="get" action="ProductInfo">
 		<table>
 			<tr>Test ProductInfo<td><input type="text" value="P000001" name="product"/></td></tr>
 		</table>
 	</form>
-	<button onclick="checkOnSubmit2()" id="submit-btn">SIGN UP</button>
+	<button onclick="checkOnSubmit2()" id="submit-btn">SUBMIT</button>
 	<script src="js/testMod.js"></script>
 </body>
 </html>

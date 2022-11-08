@@ -29,7 +29,7 @@
 			</td>
 		</tr>
 	</table>
-	<form method="post" action="UpdateUser">
+	<form method="post" action="UpdateProfile">
 		<div id="info">
 			<table id="table0">
 				<tr>
@@ -64,7 +64,7 @@
 										<tr>
 											<td><input type="text" name="email"
 												value="<%String email = (String) request.getParameter("email"); out.print(email);%>"
-												id="inputEmail" disabled /></td>
+												id="inputEmail" /></td>
 										</tr>
 									</table>
 								</td>
