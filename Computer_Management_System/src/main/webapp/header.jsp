@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -25,16 +24,8 @@
 							class="fa-solid fa-house fa-lg"></i></a></li>
 					<li><a href="login.jsp" title="Log-in"><i
 							class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></a></li>
-					<c:choose>
-						<c:when test="${product.yearsProduced > 0}">
-							<li><a href="save.jsp" title="Save"><i
-									class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
-						</c:when>
-						<c:otherwise>
-							<li><a href="save.jsp" title="Save"><i
-									class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
-						</c:otherwise>
-					</c:choose>
+					<li><a href="save.jsp" title="Save"><i
+							class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
 					<li><a href="myProfile.jsp" title="user"><i class="fa-regular fa-circle-user fa-lg"></i></a></li>
 				</ul>
 			</td>

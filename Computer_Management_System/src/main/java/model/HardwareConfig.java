@@ -1,11 +1,11 @@
 package model;
 import java.io.Serializable;
 
-public class Hardware implements Serializable {
+public class HardwareConfig implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private int configID;
-	private String[] configProducts;
+	private String productID;
 	
 	public int getConfigID() {
 		return configID;

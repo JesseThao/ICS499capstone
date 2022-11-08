@@ -21,6 +21,7 @@
 				<th>Product</th>
 				<th>Review</th>
 				<th>Description</th>
+				<th>Add Product</th>
 				<th>Price</th>
 				<th>Link</th>
 			</tr>
@@ -36,6 +37,10 @@
 						</form>
 						</td>
 						<td>${product.description}</td>
+						<form action="AddProduct">
+							<td><input type="submit" value="+" class="btn btn-primary component-btn" /></td>
+							<input type="hidden" name="prodID" value="${product.productID}">
+						</form>
 						<td>${product.price}</td>
 						<td width="5%"><a href="https://a.co/d/4m9HHMG"><i
 								class="fa-solid fa-link fa-lg"></i></a></td>
