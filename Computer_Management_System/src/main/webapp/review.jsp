@@ -9,7 +9,6 @@
 
 
 <style>
-
 .bar-5 {width: ${reviewList.fiveStarWidth}%;}
 .bar-4 {width: ${reviewList.fourStarWidth}%;}
 .bar-3 {width: ${reviewList.threeStarWidth}%;}
