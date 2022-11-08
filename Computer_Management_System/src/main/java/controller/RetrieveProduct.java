@@ -52,7 +52,7 @@ public class RetrieveProduct extends HttpServlet {
 			String productType = request.getParameter("prodType");
 			ResultSet rs = statement.executeQuery("Select * from products where productType = '" + productType + "'");
 			Product product = new Product();			
-			ArrayList<Product> products = product.getList(rs, productType);
+			ArrayList<Product> products = product.getList(rs);
 			ArrayList<ReviewList> reviewListArray = new ArrayList<ReviewList>();
 			
 			request.setAttribute("products", products);

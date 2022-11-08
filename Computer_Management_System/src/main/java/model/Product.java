@@ -16,14 +16,10 @@ public class Product implements Serializable {
 	private String productID;
 	private String description;
 	private Double price;
-	private String brand;
-	private String model;
+	private String link;
 	private Double reviewAverage;
 	private Connection connection;
 	
-	public String getBrand() {
-		return brand;
-	}
 	public String getDescription() {
 		return description;
 	}
@@ -37,9 +33,10 @@ public class Product implements Serializable {
 				p.setProductID(rs.getString(1));
 				p.setProductType(rs.getString(2));
 				p.setDescription(rs.getString(3));
-				p.setPrice(Double.valueOf(rs.getString(4)));				
-				//p.setBrand(rs.getString(3));
-				//p.setModel(rs.getString(3));
+				p.setPrice(Double.valueOf(rs.getString(4)));
+				p.setLink(rs.getString(5));
+				
+				System.out.println(p.toString());
 				
 				productList.add(p);
 			}
@@ -48,6 +45,50 @@ public class Product implements Serializable {
 		}
 		
 		return productList;		
+	}
+	public ArrayList<Product> getList(ResultSet rs) {
+		ArrayList<Product> productList = new ArrayList<Product>();
+
+		try {
+			while (rs.next()) {
+				
+				Product p = new Product();
+				p.setProductID(rs.getString(1));
+				p.setProductType(rs.getString(2));
+				p.setDescription(rs.getString(3));
+				p.setPrice(Double.valueOf(rs.getString(4)));
+				p.setLink(rs.getString(5));
+				
+				productList.add(p);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return productList;		
+	}
+	@Override
+	public String toString() {
+		return "[productID=" + productID + ", description=" + description + ", price=" + price
+				+ ", Link=" + link + ", productType=" + productType + "]";
+	}
+	public Product getProduct(ResultSet rs) {
+		Product product = new Product();
+		try {
+			if (rs.getFetchSize() > 1) {
+				product.getList(rs);
+			}
+			while (rs.next()) {
+				product.setProductID(rs.getString(1));
+				product.setProductType(rs.getString(2));
+				product.setDescription(rs.getString(3));
+				product.setPrice(Double.valueOf(rs.getString(4)));
+				product.setLink(rs.getString(5));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return product;
 	}
 	public Double getPrice() {
 		return price;
@@ -58,14 +99,8 @@ public class Product implements Serializable {
 	public String getProductType() {
 		return productType;
 	}
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	private String setModel(String string) {
-		return model;	
 	}
 	public void setPrice(Double price) {
 		this.price = price;
@@ -96,5 +131,11 @@ public class Product implements Serializable {
 			e.printStackTrace();
 		}
 		return reviewAverage;	
+	}
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
 	}
 }
