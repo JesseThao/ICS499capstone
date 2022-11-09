@@ -80,7 +80,7 @@
 											<td></td>
 										</tr>
 									</table>
-									</form>
+									
 								</td>
 								<td>
 									<table id="table3">
@@ -107,12 +107,13 @@
 								</td>
 							</tr>
 							<tr>
-								<td><button onclick="checkOnSubmit()" id="submit-btn">SIGN UP</button></td>
+								<td><input type="submit" id="submit-btn" value="SIGN UP"></button></td>
 							</tr>
 						</table>
 					</td>
 				</tr>
 			</table>
+			</form>
 		</div>
 	<script src="js/createUserMod.js"></script>
 </body>
