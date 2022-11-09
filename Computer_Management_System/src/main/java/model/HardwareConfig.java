@@ -6,6 +6,8 @@ public class HardwareConfig implements Serializable {
 	
 	private int configID;
 	private String productID;
+
+	private String[] configProducts;
 	
 	public int getConfigID() {
 		return configID;
