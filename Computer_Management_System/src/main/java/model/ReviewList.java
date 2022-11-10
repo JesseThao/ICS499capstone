@@ -102,7 +102,6 @@ public class ReviewList implements Serializable {
 				reviewList.add(newReview);
 			}
 			setWidth();
-			System.out.print("review list array: " + reviewList.toString());
 
 		} catch (SQLException e) {
 			e.printStackTrace();

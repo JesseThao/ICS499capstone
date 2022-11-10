@@ -8,10 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import model.Product;
 import model.ReviewList;
 
@@ -49,7 +52,7 @@ public class RetrieveProduct extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			Statement statement = connection.createStatement();		
-			String productType = request.getParameter("prodType");
+			String productType = request.getParameter("selectProd");
 			ResultSet rs = statement.executeQuery("Select * from products where productType = '" + productType + "'");
 			Product product = new Product();			
 			ArrayList<Product> products = product.getList(rs);

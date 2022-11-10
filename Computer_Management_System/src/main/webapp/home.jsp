@@ -15,190 +15,63 @@
 
 <body>
 	<%@ include file="header.jsp"%>
+	<form action="GetProduct">
+		<input type="hidden" id="config" value="${config}">
 
-	<table id="products">
-		<tr>
-			<th>Component</th>
-			<th>Product</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Link</th>
-		</tr>
-		<form action="GetProduct">
-			<tr class="items">
-				<td scope="row" class="component">Processor</td>
-				<c:choose>
-					<c:when
-						test="${!empty product.productID && product.productType == 'Processor'}">
-						<td>${product.productID }</td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td width="5%"><a href="${product.link }"><i
-								class="fa-solid fa-link fa-lg"></i></a></td>
-					</c:when>
-					<c:otherwise>
-						<td class="select-comp" colspan="4"><input type="submit"
-							name="selectProd" value=" + Add Component"
-							class="btn btn-primary component-btn" /> <input type="hidden"
-							name="prodType" value="Processor"></td>
-					</c:otherwise>
-				</c:choose>
 
+		<table id="products">
+			<tr>
+				<th>Component</th>
+				<th>Product</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Link</th>
 			</tr>
-			<tr class="items">
-				<td scope="row" class="component">Motherboard</td>
-				<c:choose>
-					<c:when
-						test="${!empty product.productID && product.productType == 'Motherboard'}">
-						<td>${product.productID }</td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td width="5%"><a href="${product.link }"><i
-								class="fa-solid fa-link fa-lg"></i></a></td>
-					</c:when>
-					<c:otherwise>
-						<td class="select-comp" colspan="4"><input type="submit"
-							name="selectProd" value=" + Add Component"
-							class="btn btn-primary component-btn" /> <input type="hidden"
-							name="prodType" value="Motherboard"></td>
-					</c:otherwise>
-				</c:choose>				
-			<tr class="items">
-				<td scope="row" class="component">Case</td>
-				<c:choose>
-					<c:when
-						test="${!empty product.productID && product.productType == 'Case'}">
-						<td>${product.productID }</td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td width="5%"><a href="${product.link }"><i
-								class="fa-solid fa-link fa-lg"></i></a></td>
-					</c:when>
-					<c:otherwise>
-						<td class="select-comp" colspan="4"><input type="submit"
-							name="selectProd" value=" + Add Component"
-							class="btn btn-primary component-btn" /> <input type="hidden"
-							name="prodType" value="Case"></td>
-					</c:otherwise>
-				</c:choose>				
-			</tr>
-			<tr class="items">
-				<td scope="row" class="component">Graphics Card</td>
-				<c:choose>
-					<c:when
-						test="${!empty product.productID && product.productType == 'Graphic Card'}">
-						<td>${product.productID }</td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td width="5%"><a href="${product.link }"><i
-								class="fa-solid fa-link fa-lg"></i></a></td>
-					</c:when>
-					<c:otherwise>
-						<td class="select-comp" colspan="4"><input type="submit"
-							name="selectProd" value=" + Add Component"
-							class="btn btn-primary component-btn" /> <input type="hidden"
-							name="prodType" value="Graphic Card"></td>
-					</c:otherwise>
-				</c:choose>
-			</tr>
-			<tr class="items">
-				<td scope="row" class="component">Ram</td>
-				<c:choose>
-					<c:when
-						test="${!empty product.productID && product.productType == 'Ram'}">
-						<td>${product.productID }</td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td width="5%"><a href="${product.link }"><i
-								class="fa-solid fa-link fa-lg"></i></a></td>
-					</c:when>
-					<c:otherwise>
-						<td class="select-comp" colspan="4"><input type="submit"
-							name="selectProd" value=" + Add Component"
-							class="btn btn-primary component-btn" /> <input type="hidden"
-							name="prodType" value="Ram"></td>
-					</c:otherwise>
-				</c:choose>
-			</tr>
-			<tr class="items">
-				<td scope="row" class="component">Storage</td>
-				<c:choose>
-					<c:when
-						test="${!empty product.productID && product.productType == 'Storage'}">
-						<td>${product.productID }</td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td width="5%"><a href="${product.link }"><i
-								class="fa-solid fa-link fa-lg"></i></a></td>
-					</c:when>
-					<c:otherwise>
-						<td class="select-comp" colspan="4"><input type="submit"
-							name="selectProd" value=" + Add Component"
-							class="btn btn-primary component-btn" /> <input type="hidden"
-							name="prodType" value="Storage"></td>
-					</c:otherwise>
-				</c:choose>				
-			</tr>
-		<tr class="items">
-			<td scope="row" class="component">Power Supply</td>
-				<c:choose>
-					<c:when
-						test="${!empty product.productID && product.productType == 'Power Supply'}">
-						<td>${product.productID }</td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td width="5%"><a href="${product.link }"><i
-								class="fa-solid fa-link fa-lg"></i></a></td>
-					</c:when>
-					<c:otherwise>
-						<td class="select-comp" colspan="4"><input type="submit"
-							name="selectProd" value=" + Add Component"
-							class="btn btn-primary component-btn" /> <input type="hidden"
-							name="prodType" value="Power Supply"></td>
-					</c:otherwise>
-				</c:choose>
-		</tr>
-			<tr class="items">
-				<td scope="row" class="component">Monitor</td>
-				<c:choose>
-					<c:when
-						test="${!empty product.productID && product.productType == 'Monitor'}">
-						<td>${product.productID }</td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td width="5%"><a href="${product.link }"><i
-								class="fa-solid fa-link fa-lg"></i></a></td>
-					</c:when>
-					<c:otherwise>
-						<td class="select-comp" colspan="4"><input type="submit"
-							name="selectProd" value=" + Add Component"
-							class="btn btn-primary component-btn" /> <input type="hidden"
-							name="prodType" value="Monitor"></td>
-					</c:otherwise>
-				</c:choose>				
-			</tr>		
-			<tr class="items">
-				<td scope="row" class="component">Accessories</td>
-				<c:choose>
-					<c:when
-						test="${!empty product.productID && product.productType == 'Accessories'}">
-						<td>${product.productID }</td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td width="5%"><a href="${product.link }"><i
-								class="fa-solid fa-link fa-lg"></i></a></td>
-					</c:when>
-					<c:otherwise>
-						<td class="select-comp" colspan="4"><input type="submit"
-							name="selectProd" value=" + Add Component"
-							class="btn btn-primary component-btn" /> <input type="hidden"
-							name="prodType" value="Accessories"></td>
-					</c:otherwise>
-				</c:choose>					
-			</tr>
-		</form>
-	</table>
+			<c:choose>
+				<c:when test="${!config.selectedProduct}">
+					<c:forEach items="${sessionScope.config.components}"
+						var="component" varStatus="stat">
+						<tr class="items">
+							<td scope="row" class="component">${component}</td>
+							<td class="select-comp" colspan="4"><input type="submit"
+								name="selectProd" value="${component}"
+								class="btn btn-primary component-btn" />
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<c:forEach items="${sessionScope.config.mySelectedProducts}"
+						var="productSelected" varStatus="stat">
+						<tr class="items">
+							<c:choose>
+								<c:when test="${!empty productSelected.productID}">
+									<tr class="items">
+										<td scope="row" class="component">${productSelected.productType}</td>
+										<td>${productSelected.productID }</td>
+										<td>${productSelected.description }</td>
+										<td>${productSelected.price }</td>
+										<td width="5%"><a href="${productSelected.link }"><i
+												class="fa-solid fa-link fa-lg"></i></a></td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<tr class="items">
+										<td scope="row" class="component">${productSelected.productType}</td>
+										<td class="select-comp" colspan="4"><input type="submit"
+											name="selectProd" value="${productSelected.productType}"
+											class="btn btn-primary component-btn" />
+									</tr>
 
+								</c:otherwise>
+
+							</c:choose>
+						</tr>
+					</c:forEach>
+
+				</c:otherwise>
+			</c:choose>
+		</table>
+	</form>
 	<br />
 	<div class="footer">Copyright 2022 All Rights Reserved.</div>
 </body>
