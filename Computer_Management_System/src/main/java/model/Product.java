@@ -87,7 +87,8 @@ public class Product implements Serializable {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
+		}
+
 		return product;
 	}
 	public Double getPrice() {
