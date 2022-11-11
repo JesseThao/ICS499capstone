@@ -20,7 +20,7 @@ import model.Product;
 import model.ReviewList;
 
 
-/**
+/**   
  * Servlet implementation class Product
  */
 @WebServlet("/GetProduct")

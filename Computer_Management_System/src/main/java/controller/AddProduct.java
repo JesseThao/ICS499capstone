@@ -20,7 +20,7 @@ import model.Product;
 import model.ReviewList;
 
 /**
- * Servlet implementation class AddProduct
+ * Servlet implementation class AddProduct d
  */
 @WebServlet("/AddProduct")
 public class AddProduct extends HttpServlet {

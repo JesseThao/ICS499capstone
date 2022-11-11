@@ -18,7 +18,7 @@ import model.Product;
 import model.ReviewList;
 
 /**
- * Servlet implementation class RetrieveProductType
+ * Servlet implementation class RetrieveProductType  
  */
 @WebServlet("/RetrieveProductType")
 public class RetrieveProductType extends HttpServlet {
