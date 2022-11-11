@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,21 +19,20 @@ import model.HardwareConfig;
 import model.Product;
 import model.ReviewList;
 
-
-/**   
- * Servlet implementation class Product
+/**
+ * Servlet implementation class AddProduct d
  */
-@WebServlet("/GetProduct")
-public class RetrieveProduct extends HttpServlet {
+@WebServlet("/AddProduct")
+public class AddProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RetrieveProduct() {
+    public AddProduct() {
         super();
     }
-    
+
 	private Connection connection;
     
 	public void init() {
@@ -52,34 +51,42 @@ public class RetrieveProduct extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			HttpSession session = request.getSession();
 			Statement statement = connection.createStatement();		
-			String productType = request.getParameter("selectProd");
-			ResultSet rs = statement.executeQuery("Select * from products where productType = '" + productType + "'");
-			Product product = new Product();			
-			ArrayList<Product> products = product.getList(rs);
-			ArrayList<ReviewList> reviewListArray = new ArrayList<ReviewList>();
-			request.setAttribute("products", products);
-			request.setAttribute("reviewList", reviewListArray);
+			String productID = request.getParameter("prodID");
+			Product product = new Product();
+			ResultSet rs = statement.executeQuery("SELECT * FROM cmhs.products WHERE productID = '" + productID + "'");
+			product= product.getProduct(rs);
+			ResultSet rs2 = statement.executeQuery("SELECT productType FROM cmhs.components");
 			
-			if(request.getParameter("deleteProd") != null) {
-				HttpSession session = request.getSession();
-				product.setProductID(request.getParameter("deleteProd"));
-				ResultSet rs2 = statement.executeQuery("Select * from products where productID = '" + product.getProductID() + "'");
-				product = product.getProduct(rs2);
-				
-				HardwareConfig myProdList = new HardwareConfig();
+			HardwareConfig myProdList = new HardwareConfig();
+			//request.setAttribute("product", product );
+			
+			
+			if (session.getAttribute("config") != null) {
 				myProdList = (HardwareConfig) session.getAttribute("config");
-				myProdList.deleteMySelectedProducts(product);
-				session.setAttribute("config", myProdList);
+				myProdList.setMySelectedProducts(product);
+				myProdList.setMyProducts(product);
+				request.setAttribute("product", product);
+
+			}else {
 				
-				request.getRequestDispatcher("home.jsp").forward(request, response);
+				//myProdList.setMySelectedProducts(product);
+				//myProdList.setMyProducts(product);
+				myProdList.setComponents(rs2);								
 			}
-			else
-				request.getRequestDispatcher("product.jsp").forward(request, response);
+			session.setAttribute("config", myProdList);
+			log("MySelectedProduct size: " + myProdList.getMySelectedProducts().size());
+			log("MyProducts size: " + myProdList.getMyProducts().size());
+			log("Components size: " + myProdList.getComponents().size());
+			log("setMySelectedProducts: " + myProdList.getMySelectedProducts().toString());
+		
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
 	public void destroy(){
 		try {
@@ -93,8 +100,6 @@ public class RetrieveProduct extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
