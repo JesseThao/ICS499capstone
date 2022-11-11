@@ -13,7 +13,6 @@ h1
 }
 
 #products td, #products th {
-  
   padding: 8px;
 }
 
@@ -105,4 +104,12 @@ li a:hover {
 }
 #starlink{
 	text-decoration: none;
+}
+.dlt{
+	background: none;
+    color: red;
+    padding: 8px 16px;
+    border: 0;
+    text-decoration: none;
+    font-family: FontAwesome;
 }

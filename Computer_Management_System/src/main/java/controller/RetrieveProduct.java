@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.HardwareConfig;
 import model.Product;
 import model.ReviewList;
 
@@ -57,15 +58,28 @@ public class RetrieveProduct extends HttpServlet {
 			Product product = new Product();			
 			ArrayList<Product> products = product.getList(rs);
 			ArrayList<ReviewList> reviewListArray = new ArrayList<ReviewList>();
-			
 			request.setAttribute("products", products);
 			request.setAttribute("reviewList", reviewListArray);
+			
+			if(request.getParameter("deleteProd") != null) {
+				HttpSession session = request.getSession();
+				product.setProductID(request.getParameter("deleteProd"));
+				ResultSet rs2 = statement.executeQuery("Select * from products where productID = '" + product.getProductID() + "'");
+				product = product.getProduct(rs2);
+				
+				HardwareConfig myProdList = new HardwareConfig();
+				myProdList = (HardwareConfig) session.getAttribute("config");
+				myProdList.deleteMySelectedProducts(product);
+				session.setAttribute("config", myProdList);
+				
+				request.getRequestDispatcher("home.jsp").forward(request, response);
+			}
+			else
+				request.getRequestDispatcher("product.jsp").forward(request, response);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		request.getRequestDispatcher("product.jsp").forward(request, response);
 	}
 	public void destroy(){
 		try {
