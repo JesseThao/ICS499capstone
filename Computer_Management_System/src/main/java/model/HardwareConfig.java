@@ -15,7 +15,21 @@ public class HardwareConfig implements Serializable {
 	private ArrayList<String> components = new ArrayList<>();
 	private boolean selectedProduct;
 	private Product selectProductforType;
+	private String email;
+	private String saveID;
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getSaveID() {
+		return saveID;
+	}
+	public void setSaveID(String saveID) {
+		this.saveID = saveID;
+	}
 	/**
 	public Product getSelectProductforType() {
 		for (int y= 0; y < components.size(); y++) {
@@ -98,8 +112,8 @@ public class HardwareConfig implements Serializable {
 		//myProducts.add(newProduct);
 	}
 	@SuppressWarnings("unchecked")
-	public ArrayList<SelectedProd> getMySelectedProducts() {
-		return (ArrayList<SelectedProd>) mySelectedProducts.clone();
+	public ArrayList<Product> getMySelectedProducts() {
+		return (ArrayList<Product>) mySelectedProducts.clone();
 	}
 	public void setMySelectedProducts(Product product) {
 		
@@ -111,7 +125,25 @@ public class HardwareConfig implements Serializable {
 		
 	}
 	public boolean isSelectedProduct() {
-		return selectedProduct = (mySelectedProducts.size() > 0 ? true : false) ;
+		
+		for(int i = 0; i < mySelectedProducts.size(); i++) {
+			if(mySelectedProducts.get(i).getProductID() !=null) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public void deleteMySelectedProducts(Product product) {
+		
+		Product resetProd = new Product();
+		resetProd.setProductType(product.getProductType());
+		
+		for(int i = 0; i < mySelectedProducts.size(); i++) {
+			if(mySelectedProducts.get(i).getProductType().equals(product.getProductType())) {
+				mySelectedProducts.set(i, resetProd);
+			}
+		}
+		
 	}
 }
 

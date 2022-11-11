@@ -16,26 +16,37 @@
 <body>
 	<%@ include file="header.jsp"%>
 	<form action="GetProduct">
-		<input type="hidden" id="config" value="${config}">
-
-
 		<table id="products">
 			<tr>
-				<th>Component</th>
-				<th>Product</th>
-				<th>Description</th>
-				<th>Price</th>
-				<th>Link</th>
+							
+				<c:choose>
+					<c:when test="${config.selectedProduct != false}">
+						<th width="10%">Component</th>	
+						<th width="5%">Delete</th>
+						<th>Product</th>
+						<th>Description</th>
+						<th>Price</th>
+						<th>Link</th>
+					</c:when>
+					<c:otherwise>
+					<th width="15%">Component</th>	
+					<th></th>
+					<th>Add Product</th>
+					<th></th>
+					<th></th>
+</c:otherwise>
+				</c:choose>
 			</tr>
 			<c:choose>
-				<c:when test="${!config.selectedProduct}">
+				<c:when test="${config.selectedProduct == false}">
 					<c:forEach items="${sessionScope.config.components}"
 						var="component" varStatus="stat">
 						<tr class="items">
 							<td scope="row" class="component">${component}</td>
-							<td class="select-comp" colspan="4"><input type="submit"
-								name="selectProd" value="${component}"
-								class="btn btn-primary component-btn" />
+							<td width="5%"></td>
+							<td class="select-comp" colspan="4">
+							<button class="btn btn-primary component-btn" type="submit" name="selectProd" value="${component }">
+													<i class="fa-solid fa-plus"></i>Add Component</button></td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -47,7 +58,12 @@
 								<c:when test="${!empty productSelected.productID}">
 									<tr class="items">
 										<td scope="row" class="component">${productSelected.productType}</td>
+										<td width="5%">
+										<button class="dlt" type="submit" name="deleteProd"	value="${productSelected.productID }">
+											<i class="fa-solid fa-trash fa-lg"></i></button></td>
 										<td>${productSelected.productID }</td>
+
+
 										<td>${productSelected.description }</td>
 										<td>${productSelected.price }</td>
 										<td width="5%"><a href="${productSelected.link }"><i
@@ -57,9 +73,10 @@
 								<c:otherwise>
 									<tr class="items">
 										<td scope="row" class="component">${productSelected.productType}</td>
-										<td class="select-comp" colspan="4"><input type="submit"
-											name="selectProd" value="${productSelected.productType}"
-											class="btn btn-primary component-btn" />
+										<td width="5%"></td>
+										<td class="select-comp" colspan="4">
+										<button class="btn btn-primary component-btn" type="submit" name="selectProd" value="${productSelected.productType }">
+													<i class="fa-solid fa-plus"></i>Add Component</button></td>
 									</tr>
 
 								</c:otherwise>
