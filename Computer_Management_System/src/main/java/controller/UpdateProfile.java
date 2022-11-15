@@ -13,12 +13,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/CreateUser")
-public class CreateUser extends HttpServlet {
+/**
+ * Servlet implementation class UpdateProfile
+ */
+@WebServlet("/UpdateProfile")
+public class UpdateProfile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection connection;
-       
+    
 	public void init() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -38,18 +40,19 @@ public class CreateUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String firstName = request.getParameter("firstName");
 		String lastName =request.getParameter("lastName");
-		String password = request.getParameter("password");
 		String email =request.getParameter("email");
 		
 		try {
 			Statement statement = connection.createStatement();
-			int result = statement.executeUpdate("insert into user values('"+firstName+"','"+lastName+"','"+email+"','"+password+"')");
+			int result = statement.executeUpdate("update user set firstName='"+firstName+"', lastName='"+lastName+"' where email='"+email+"'");
 			
 			if(result > 0) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("createUserResult.jsp");
+				request.setAttribute("firstName", firstName);
+				request.setAttribute("lastName", lastName);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("updateProfileResult.jsp");
 				dispatcher.forward(request, response);
 			}else {
-				System.out.println("Error Creating User");
+				System.out.println("Error Updating Profile");
 			}
 			
 		} catch (SQLException e) {

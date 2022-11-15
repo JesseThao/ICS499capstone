@@ -21,5 +21,10 @@
 	</form>
 	<button onclick="checkOnSubmit2()" id="submit-btn">SIGN UP</button>
 	<script src="js/testMod.js"></script>
+	<select class="form-control" id="StudentGender" name="StudentGender">
+    <option>Select Gender</option> 
+    <option>Male</option> 
+    <option>Female</option> 
+</select>
 </body>
 </html>

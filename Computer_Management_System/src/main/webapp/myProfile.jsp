@@ -12,7 +12,7 @@
 </head>
 <body>
 <%@ include file="header.jsp"%>
-	<form method="post" action="UpdateUser">
+	<form method="post" action="UpdateProfile">
 		<div id="info">
 			<table id="table0">
 				<tr>
@@ -38,7 +38,11 @@
 										</tr>
 										<tr>
 											<td><input type="text" name="firstName"
-												value="<%String firstName = (String) request.getAttribute("firstname"); out.print(firstName);%>"
+												value="<%String firstName =(String) request.getAttribute("firstName");
+														if(firstName != null){
+															out.print(firstName);
+														}
+														%>"
 												id="inputFN" /></td>
 										</tr>
 										<tr>
@@ -47,7 +51,7 @@
 										<tr>
 											<td><input type="text" name="email"
 												value="<%String email = (String) request.getParameter("email"); out.print(email);%>"
-												id="inputEmail" disabled /></td>
+												id="inputEmail" readonly/></td>
 										</tr>
 									</table>
 								</td>
@@ -58,7 +62,11 @@
 										</tr>
 										<tr>
 											<td><input type="text" name="lastName"
-												value="<%String lastName = (String) request.getAttribute("lastname"); out.print(lastName);%>"
+												value="<%String lastName =(String) request.getAttribute("lastName");
+														if(lastName != null){
+															out.print(lastName);
+														}
+														%>"
 												id="inputLN" /></td>
 										</tr>
 									</table>

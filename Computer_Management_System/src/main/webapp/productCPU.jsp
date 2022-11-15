@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,70 +29,81 @@
 			</td>
 		</tr>
 	</table>
-<form method="get" action="ProductInfo">
-	<div id="info">
-		<table id="table0">
-			<tr>
-				<th id="profile-header">Product Detail</th>
-			</tr>
-			<tr>
-				<td>
-					<table id="table1">
-						<tr>
-							<td>
-								<table>
-									<tr>
-										<td>
-											Product Image Here
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td>
-								<table id="table2">
-									<tr>
-										<td>
-											name:<%String name =(String) request.getAttribute("name"); out.print(name);%>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											Cores:<%String cores =(String) request.getAttribute("cores"); out.print(cores);%>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											Speed:<%String speed =(String) request.getAttribute("speed"); out.print(speed);%>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											Socket:<%String socket =(String) request.getAttribute("socket"); out.print(socket);%>
-										</td>
-									</tr>
+	<form method="get" action="ProductInfo">
+		<div id="info">
+			<table id="table0">
+				<tr>
+					<th id="profile-header">Product Detail</th>
+				</tr>
+				<tr>
+					<td>
+						<table id="table1">
+							<tr>
+								<td>
+									<table id="imageTable">
 										<tr>
-										<td>
-											TDP:<%String tdp =(String) request.getAttribute("tdp"); out.print(tdp);%>
-										</td>
-									</tr>
+											<td><img src="<%String image = (String) request.getParameter("product"); image = "images/" + image + ".jpg"; out.print(image);%>" id="image"></td>
+										</tr>
 										<tr>
-										<td>
-											Released:<%String released =(String) request.getAttribute("released"); out.print(released);%>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="submit" name="submit"/>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-	</div>
-</form>
+											<td><img src="<% image = (String) request.getParameter("product"); image = "images/" + image + ".jpg"; out.print(image);%>" class="smallImage"></td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table id="table2">
+										<tr>
+											<td>name:<%
+											String name = (String) request.getAttribute("name");
+											out.print(name);
+											%>
+											</td>
+										</tr>
+										<tr>
+											<td>Cores:<%
+											String cores = (String) request.getAttribute("cores");
+											out.print(cores);
+											%>
+											</td>
+										</tr>
+										<tr>
+											<td>Speed:<%
+											String speed = (String) request.getAttribute("speed");
+											out.print(speed);
+											%>
+											</td>
+										</tr>
+										<tr>
+											<td>Socket:<%
+											String socket = (String) request.getAttribute("socket");
+											out.print(socket);
+											%>
+											</td>
+										</tr>
+										<tr>
+											<td>TDP:<%
+											String tdp = (String) request.getAttribute("tdp");
+											out.print(tdp);
+											%>
+											</td>
+										</tr>
+										<tr>
+											<td>Released:<%
+											String released = (String) request.getAttribute("released");
+											out.print(released);
+											%>
+											</td>
+										</tr>
+										<tr>
+											<td><input type="submit" name="submit" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
 </body>
 </html>

@@ -42,8 +42,8 @@ public class MyProfile extends HttpServlet {
 			if (rs.next()) {
 				String firstname = rs.getString(1);
 				String lastname = rs.getString(2);
-				request.setAttribute("firstname", firstname);
-				request.setAttribute("lastname", lastname);
+				request.setAttribute("firstName", firstname);
+				request.setAttribute("lastName", lastname);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("myProfile.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -56,7 +56,7 @@ public class MyProfile extends HttpServlet {
 	}
 
 	
-	public void destroty(){
+	public void destroy(){
 		try {
 			connection.close();
 		} catch (SQLException e) {
