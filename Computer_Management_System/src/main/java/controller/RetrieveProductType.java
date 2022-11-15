@@ -49,7 +49,6 @@ public class RetrieveProductType extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			Statement statement = connection.createStatement();		
-			String productType = request.getParameter("prodType");
 			ResultSet rs = statement.executeQuery("Select * from components");
 			Product product = new Product();			
 			ArrayList<Product> products = product.getList(rs);

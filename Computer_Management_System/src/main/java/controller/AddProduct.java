@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import model.HardwareConfig;
 import model.Product;
-import model.ReviewList;
+
 
 /**
  * Servlet implementation class AddProduct d
@@ -60,7 +60,6 @@ public class AddProduct extends HttpServlet {
 			ResultSet rs2 = statement.executeQuery("SELECT productType FROM cmhs.components");
 			
 			HardwareConfig myProdList = new HardwareConfig();
-			//request.setAttribute("product", product );
 			
 			
 			if (session.getAttribute("config") != null) {
@@ -70,9 +69,7 @@ public class AddProduct extends HttpServlet {
 				request.setAttribute("product", product);
 
 			}else {
-				
-				//myProdList.setMySelectedProducts(product);
-				//myProdList.setMyProducts(product);
+
 				myProdList.setComponents(rs2);								
 			}
 			session.setAttribute("config", myProdList);
