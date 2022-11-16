@@ -11,24 +11,7 @@
 <title>My Profile Page</title>
 </head>
 <body>
-	<table id="header">
-		<tr>
-			<td><img src="images/logo3.png"
-				alt="Computer Hardware Management System" /></td>
-		</tr>
-		<tr>
-			<td>
-				<ul>
-					<li><a href="home.jsp" title="Home"><i
-							class="fa-solid fa-house fa-lg"></i></a></li>
-					<li><a href="login.jsp" title="Log-in"><i
-							class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></a></li>
-					<li><a href="save.jsp" title="Save"><i
-							class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
-				</ul>
-			</td>
-		</tr>
-	</table>
+<%@ include file="header.jsp"%>
 	<form method="get" action="ProductInfo">
 		<div id="info">
 			<table id="table0">
@@ -42,10 +25,10 @@
 								<td>
 									<table id="imageTable">
 										<tr>
-											<td><img src="<%String image = (String) request.getParameter("product"); image = "images/" + image + ".jpg"; out.print(image);%>" id="image"></td>
+											<td><img src="<%String image = (String) request.getParameter("product"); String imageName = image; image = "images/" + image + ".jpg"; out.print(image);%>" name="<%out.print(imageName); %>" id="image"></td>
 										</tr>
 										<tr>
-											<td><img src="<% image = (String) request.getParameter("product"); image = "images/" + image + ".jpg"; out.print(image);%>" class="smallImage"></td>
+											<td><div id="arrow"><i class="fa-solid fa-arrow-left" onclick="arrowLeft()" id="arrowLeft"></i> <i class="fa-solid fa-arrow-right" onclick="arrowRight()" id="arrowRight"></i></div></td>
 										</tr>
 									</table>
 								</td>
@@ -105,5 +88,6 @@
 			</table>
 		</div>
 	</form>
+	<script src="js/createUserMod.js"></script>
 </body>
 </html>
