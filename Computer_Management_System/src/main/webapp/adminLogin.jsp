@@ -15,6 +15,18 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
+	<div class="login">
+		<%
+		String msg = request.getParameter("msg");
+			if ("doesnotexist".equals(msg)) {
+			%><h1>Incorrect Username or Password</h1><%
+		}
+		%><%
+			if ("invalid".equals(msg)) {
+			%><h1>Something went wrong! try again</h1><%
+		}
+		%>
+	</div>
 	<h1>Administrator login</h1>
 		<center>
 	<form action="adminLogin" method="post">
@@ -25,13 +37,13 @@
 						<td>Email :</td>
 					</tr>
 					<tr>
-					<td><input type="text" name="email"></td>
+					<td><input type="text" name="email" required></td>
 					</tr>
 					<tr>
 					<td>Password:</td>
 					</tr>
 					<tr>
-					<td><input type="password" name="password"></td>
+					<td><input type="password" name="password" required></td>
 					</tr>
 					<tr>
 					<td><input type="submit" value="submit"></td>

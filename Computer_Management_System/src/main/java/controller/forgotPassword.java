@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,13 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class userLogin
- */
-@WebServlet("/adminLogin")
-public class adminLogin extends HttpServlet {
+//ResultSet rs = stmt.executeQuery("select email, password from user where email = '"+email+"' and password = '"+password+"'");
+@WebServlet("/forgotPassword")
+public class forgotPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-private Connection connection;
+	private Connection connection;
     
 	public void init() {
 		try {
@@ -36,32 +35,29 @@ private Connection connection;
 			
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		String email =request.getParameter("email");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
 		HttpSession session = request.getSession();
-		int z = 0;
+		int check = 0;
 		try {
-			Statement statement = connection.createStatement();
-			ResultSet result = statement.executeQuery("select email, password from admin where email = '"+email+"' and password = '"+password+"'");
+			Statement st = connection.createStatement();
+			ResultSet rs = st.executeQuery("select * from user where email = '"+email+"' and firstName = '"+firstName+"' and lastName = '"+lastName+"'");
 			
-			while(result.next()) {
-				z=1;
-				session.setAttribute("email", email);
-				response.sendRedirect("adminHomepage.jsp");
-			}if(z==0){
-				response.sendRedirect("adminLogin.jsp?msg=doesnotexist");
+			while(rs.next()) {
+				check = 1;
+				st.executeUpdate("update user set password = '"+password+"' where email = '"+email+"'");
+				response.sendRedirect("forgotPassword.jsp?msg=done");
+				
+			}if(check == 0) {
+				response.sendRedirect("forgotPassword.jsp?msg=invalid");
 			}
-			
-		} catch (SQLException e) {
+		}
+		catch(Exception e) {
 			System.out.println(e);
-			response.sendRedirect("adminLogin.jsp?msg=invalid");
 		}
 	}
-	
 	public void destroty(){
 		try {
 			connection.close();
@@ -69,5 +65,8 @@ private Connection connection;
 			e.printStackTrace();
 		}
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
 }
-
