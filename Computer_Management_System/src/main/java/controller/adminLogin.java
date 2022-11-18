@@ -40,9 +40,9 @@ private Connection connection;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(true);
 		String password = request.getParameter("password");
 		String email =request.getParameter("email");
-		HttpSession session = request.getSession();
 		int z = 0;
 		try {
 			Statement statement = connection.createStatement();
@@ -51,18 +51,20 @@ private Connection connection;
 			while(result.next()) {
 				z=1;
 				session.setAttribute("email", email);
-				response.sendRedirect("adminHomepage.jsp");
+				request.setAttribute("email", email);
+				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}if(z==0){
-				response.sendRedirect("adminLogin.jsp?msg=doesnotexist");
+				response.sendRedirect("adminHomepage.jsp?msg=doesnotexist");
+				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}
 			
 		} catch (SQLException e) {
 			System.out.println(e);
-			response.sendRedirect("adminLogin.jsp?msg=invalid");
+			response.sendRedirect("adminHomepage.jsp?msg=invalid");
 		}
 	}
 	
-	public void destroty(){
+	public void destroy(){
 		try {
 			connection.close();
 		} catch (SQLException e) {
@@ -70,4 +72,3 @@ private Connection connection;
 		}
 	}
 }
-

@@ -37,11 +37,11 @@ public class login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(true);
 		String password = request.getParameter("password");
 		String email =request.getParameter("email");
-		HttpSession session = request.getSession();
 		int z = 0;
 		try {
 			Statement statement = connection.createStatement();
@@ -50,9 +50,11 @@ public class login extends HttpServlet {
 			while(result.next()) {
 				z=1;
 				session.setAttribute("email", email);
-				response.sendRedirect("home.jsp");
+				request.setAttribute("email", email);
+				request.getRequestDispatcher("home.jsp").forward(request, response);
 			}if(z==0){
 				response.sendRedirect("login.jsp?msg=doesnotexist");
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 			
 		} catch (SQLException e) {
@@ -61,7 +63,7 @@ public class login extends HttpServlet {
 		}
 	}
 	
-	public void destroty(){
+	public void destroy(){
 		try {
 			connection.close();
 		} catch (SQLException e) {

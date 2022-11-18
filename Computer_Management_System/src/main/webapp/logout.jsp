@@ -10,7 +10,7 @@
 <%
 
 session.invalidate();
-response.sendRedirect("login.jsp");
+request.getRequestDispatcher("login.jsp").forward(request, response);
 
 %>
 </body>
