@@ -29,13 +29,11 @@
 						String email = (String) session.getAttribute("email");
 						if(email == null){
 					%>
-					<li><a href="login.jsp" title="Log-in"><i
-							class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></a></li>
+					<li><a href="login.jsp" title="Log-in"><i class="fa-solid fa-right-to-bracket"></i></a></li>
 					<% } else { %>
 					<li><a href="logout.jsp" title="logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>	
-					<li><FONT COLOR=white>Hi, <%=email%><li>	
+					<li><FONT COLOR=white>Hi, <%=email%></FONT><li>	
 					<% } %>
-						
 				</ul>
 			</td>
 		</tr>
