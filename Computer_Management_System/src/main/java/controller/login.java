@@ -54,7 +54,6 @@ public class login extends HttpServlet {
 				request.getRequestDispatcher("home.jsp").forward(request, response);
 			}if(z==0){
 				response.sendRedirect("login.jsp?msg=doesnotexist");
-				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 			
 		} catch (SQLException e) {

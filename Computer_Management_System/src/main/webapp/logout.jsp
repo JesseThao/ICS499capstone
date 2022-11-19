@@ -10,7 +10,7 @@
 <%
 
 session.invalidate();
-request.getRequestDispatcher("login.jsp").forward(request, response);
+response.sendRedirect("./AddProduct");
 
 %>
 </body>

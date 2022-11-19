@@ -55,7 +55,6 @@ private Connection connection;
 				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}if(z==0){
 				response.sendRedirect("adminHomepage.jsp?msg=doesnotexist");
-				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}
 			
 		} catch (SQLException e) {
