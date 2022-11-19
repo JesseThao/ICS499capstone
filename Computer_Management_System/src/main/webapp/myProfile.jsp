@@ -50,7 +50,7 @@
 										</tr>
 										<tr>
 											<td><input type="text" name="email"
-												value="<%String email = (String) request.getParameter("email"); out.print(email);%>"
+												value="<%String userEmail = (String) request.getParameter("email"); out.print(userEmail);%>"
 												id="inputEmail" readonly/></td>
 										</tr>
 									</table>

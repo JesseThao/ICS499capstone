@@ -1,4 +1,5 @@
 let pass = document.getElementById("pwd");
+let counter = 0;
 
 function passRequirement(password) {
 	let upper = document.getElementById("upper");
@@ -59,6 +60,42 @@ function togglePDW(val){
 		passType.setAttribute("type", "password");
 	}
 		
+}
+
+function arrowRight(){
+	let image = document.getElementById("image");
+	counter = counter +1;
+	if(counter == 2){
+		counter = -1;
+		image.src = "images/" + image.name + "1.jpg";
+	}
+	else if(counter == -1){
+		image.src = "images/" + image.name + "1.jpg";
+	}
+	else if(counter == 1){
+		image.src = "images/" + image.name + "2.jpg";
+	}
+	else{
+		image.src = "images/" + image.name + ".jpg";
+	}
+}
+
+function arrowLeft(){
+	let image = document.getElementById("image");
+	counter = counter -1;
+	if(counter == -2){
+		counter = 1;
+		image.src = "images/" + image.name + "2.jpg";
+	}
+	else if(counter == -1){
+		image.src = "images/" + image.name + "1.jpg";
+	}
+	else if(counter == 1){
+		image.src = "images/" + image.name + "2.jpg";
+	}
+	else{
+		image.src = "images/" + image.name + ".jpg";
+	}
 }
 
 pass.addEventListener("keyup", function(){
