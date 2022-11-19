@@ -40,13 +40,13 @@ private Connection connection;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession();
 		String password = request.getParameter("password");
-		String email =request.getParameter("email");
+		String email = request.getParameter("email");
 		int z = 0;
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet result = statement.executeQuery("select email, password from admin where email = '"+email+"' and password = '"+password+"'");
+			ResultSet result = statement.executeQuery("SELECT * FROM cmhs.admin where email = '"+email+"' and password = '"+password+"'");
 			
 			while(result.next()) {
 				z=1;
@@ -54,12 +54,12 @@ private Connection connection;
 				request.setAttribute("email", email);
 				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}if(z==0){
-				response.sendRedirect("adminHomepage.jsp?msg=doesnotexist");
+				response.sendRedirect("adminLogin.jsp?msg=doesnotexist");
 			}
 			
 		} catch (SQLException e) {
 			System.out.println(e);
-			response.sendRedirect("adminHomepage.jsp?msg=invalid");
+			response.sendRedirect("adminLogin.jsp?msg=invalid");
 		}
 	}
 	

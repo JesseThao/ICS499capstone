@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="adminHeader.jsp" %>
 	
 	<h1>Administrator login</h1>
 	

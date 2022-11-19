@@ -14,7 +14,6 @@
 <title>Computer Hardware Management System</title>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
 	<div class="login">
 		<%
 		String msg = request.getParameter("msg");
@@ -26,6 +25,7 @@
 			%><h1>Something went wrong! try again</h1><%
 		}
 		%>
+	<%@ include file="header.jsp"%>
 	</div>
 	<h1>Administrator login</h1>
 		<center>
