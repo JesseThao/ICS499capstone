@@ -44,6 +44,7 @@ public class MyProfile extends HttpServlet {
 				String lastname = rs.getString(2);
 				request.setAttribute("firstName", firstname);
 				request.setAttribute("lastName", lastname);
+				//need this
 				RequestDispatcher dispatcher = request.getRequestDispatcher("myProfile.jsp");
 				dispatcher.forward(request, response);
 			}

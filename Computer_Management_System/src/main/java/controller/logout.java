@@ -37,17 +37,14 @@ public class logout extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
-		if(session != null) {
-			session.invalidate();
-			request.setAttribute("logged out", "you have successfully logged out");
-			response.sendRedirect("home.jsp");
-			request.getRequestDispatcher("home.jsp").forward(request, response);
-			System.out.println("logged out");
-		}
-	
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if(session.getAttribute("email") != null){
+            session.invalidate();
+            response.sendRedirect("login.jsp");
+            session.setAttribute(getServletName(), session);
+        }
+    }
 
 	public void destroy(){
 		try {
