@@ -1,8 +1,20 @@
 package controller;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.User;
+import model.UserList;
 
 public class AdminGetUser {
 	
@@ -16,6 +28,32 @@ public class AdminGetUser {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("select * from user");
+			UserList ul = new UserList();
+			ArrayList<User> result = ul.createList(rs);
+			request.setAttribute("userList", result);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("adminHomepage.jsp");
+			dispatcher.forward(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void destroy(){
+		try {
+			connection.close();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}

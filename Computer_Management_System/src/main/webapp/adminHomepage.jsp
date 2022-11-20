@@ -15,7 +15,32 @@
 <body>
 	<%@ include file="adminHeader.jsp" %>
 	
-	<h1>Administrator login</h1>
+	<h1>Administrator Home</h1>
+	
+	<div>
+		<table id="adminSetting">
+			<tr>
+				<td>
+					<tr>
+						<h1>Testing the layout</h1>
+						<form method="get" action="UserListServlet">
+						<input type="submit" value="adminUserList" />
+						</form>
+						<div>
+						<form method="get" action="ProductServlet">
+						<input type="submit" value="adminProductList" />
+						</form>
+						</div>
+						</div>
+						<form method="get" action="ReviewServlet">
+						<input type="submit" value="adminReviewList" />
+						</form>
+						<div>
+					<tr>
+				<td>
+			<tr>
+		</table>
+	</div>
 	
 	
 	

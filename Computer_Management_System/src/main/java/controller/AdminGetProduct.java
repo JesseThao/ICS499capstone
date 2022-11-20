@@ -36,7 +36,7 @@ public class AdminGetProduct {
 			Statement statement = connection.createStatement();		
 			String productID = request.getParameter("prodID");
 			Product product = new Product();
-			ResultSet rs = statement.executeQuery("SELECT * FROM cmhs.products WHERE productID = '" + productID + "'");
+			ResultSet rs = statement.executeQuery("SELECT * FROM cmhs.products where productID = '" + productID + "'");
 			product = product.getProduct(rs);
 			
 		}
