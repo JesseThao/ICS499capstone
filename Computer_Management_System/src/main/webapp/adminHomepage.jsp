@@ -17,6 +17,18 @@
 	
 	<h1>Administrator login</h1>
 	
+	<div>
+		<table id="adminSetting">
+			<tr>
+				<td>
+					
+					<%
+					
+					%>
+				
+		</table>
+	</div>
+	
 	
 	
 	<br /><div class="footer">Copyright 2022 All Rights Reserved.</div>

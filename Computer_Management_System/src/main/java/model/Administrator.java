@@ -89,6 +89,7 @@ public class Administrator implements Serializable {
 	private void deleteReview(ReviewList review) {
 		
 		
+		
 	}
 	
 	
