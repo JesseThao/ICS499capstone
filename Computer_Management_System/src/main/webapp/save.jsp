@@ -13,61 +13,55 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<H3>Save Configuration</H3>
+<form id="save" action="Save">
+	<div class="element">
 
-	<div class="grid-container">
-
-		<form id="save" action="Save">
-			<div class="grid-item">
-				<div class="grid-item-item">
-					<div class="grid-item-item">
-						<label>File Name:</label>
-					</div>
-					<div class="grid-item-item">
-						<input type="text" name="saveID">
-					</div>
-				</div>
-				<div class="grid-item-item">
-					<div class="grid-item-item">
-						<label>Email Address:</label>
-					</div>
-					<div class="grid-item-item">
-						<input type="text" name="email">
-					</div>
-				</div>
-				<div class="grid-item-item">
-					<div class="grid-item-item">
-						<input type="submit" value="Save"
-							class="btn btn-primary component-btn">
-					</div>
-				</div>
+		
+			<H1>Save Configuration</H1>
+			<div class="table1">
+			<table>
+					<tr>
+						<td><FONT COLOR=white>EMAIL</FONT></td>
+					</tr>
+					<tr>
+					<td><input type="text" name="email" placeholder="Enter Email" required></td>
+					</tr>
+					<tr>
+					<td><FONT COLOR=white>FILENAME</FONT></td>
+					</tr>
+					<tr>
+					<td><input type="text" name="saveID" placeholder="Enter filename" required></td>
+					</tr>
+					<tr>
+					<td><input type="submit" value="Save" class="savebtn"></td>
+					</tr>
+				</table>
 			</div>
-
-			<table class="results">
-
-				<c:choose>
-					<c:when test="${!empty err}">
-						<tr>
-							<td class="grid-item-item" id="error">${err}</td>
-						</tr>
-					</c:when>
-				</c:choose>
-				<c:choose>
-					<c:when test="${!empty success}">
-					<p class="results">Configuration saved with the following items:</p>
-						<c:forEach items="${sessionScope.config.mySelectedProducts}"
-							var="productSelected" varStatus="stat">
-							<tr>
-								<td class="grid-item-item" scope="row" class="component">${productSelected.productType}</td>
-								<td class="grid-item-item">${productSelected.productID }</td>
-								<td class="grid-item-item">${productSelected.description }</td>
-								<td class="grid-item-item">${productSelected.price }</td>
-							</tr>
-						</c:forEach>
-					</c:when>
-				</c:choose>
-			</table>
-		</form>
 	</div>
+
+	<table class="results">
+		<c:choose>
+			<c:when test="${!empty err}">
+				<tr>
+					<td class="element" id="error">${err}</td>
+				</tr>
+			</c:when>
+		</c:choose>
+		<c:choose>
+			<c:when test="${!empty success}">
+				<p class="results">Configuration saved with the following items:</p>
+				<c:forEach items="${sessionScope.config.mySelectedProducts}"
+					var="productSelected" varStatus="stat">
+					<tr>
+						<td class="element" scope="row" class="component">${productSelected.productType}</td>
+						<td class="element">${productSelected.productID }</td>
+						<td class="element">${productSelected.description }</td>
+						<td class="element">${productSelected.price }</td>
+					</tr>
+				</c:forEach>
+			</c:when>
+		</c:choose>
+	</table>
+	</form>
 </body>
 </html>
