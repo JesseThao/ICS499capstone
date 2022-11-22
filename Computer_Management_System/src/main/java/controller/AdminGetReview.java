@@ -11,13 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import model.Product;
+import model.Review;
+import model.ReviewList;
 
 //committest
-@WebServlet("/AdminGetProduct")
-public class AdminGetProduct {
+@WebServlet("/AdminGetReview")
+public class AdminGetReview {
 	
 	private static final long serialVersionUID = 1L;
 	private Connection connection;
@@ -32,21 +32,28 @@ public class AdminGetProduct {
 			e.printStackTrace();
 		}
 	}
-       
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Review newReview = new Review();	
+	
 		try {
-			HttpSession session = request.getSession();
-			Statement statement = connection.createStatement();		
-			String productID = request.getParameter("prodID");
-			Product product = new Product();
-			ResultSet rs = statement.executeQuery("SELECT * FROM cmhs.products where productID = '" + productID + "'");
-			product = product.getProduct(rs);
-			
-		}
+			Statement statement = connection.createStatement();
+			newReview.setProductID(request.getParameter("prodID"));
+			ResultSet rs = statement.executeQuery("Select * from reviews where productID = '" + newReview.getProductID() + "'");	
+			var rL = new ReviewList(); 
+			rL.readReviews(rs);
 		
-		catch (SQLException e) {
+			request.setAttribute("productID", newReview.getProductID());
+			request.setAttribute("reviewList", rL);
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		if(request.getParameter("selectProd") != null) {
+			request.getRequestDispatcher("product.jsp").forward(request, response);
+		}else
+			request.getRequestDispatcher("review.jsp").forward(request, response);
 	}
 	
 	public void destroy(){
@@ -56,4 +63,6 @@ public class AdminGetProduct {
 			e.printStackTrace();
 		}
 	}
+	
+
 }

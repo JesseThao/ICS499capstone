@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.User;
 import model.UserList;
 
+//committest
 @WebServlet("/AdminGetUser")
 public class AdminGetUser {
 	
