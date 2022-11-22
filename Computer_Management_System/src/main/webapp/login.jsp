@@ -1,17 +1,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-<%--fixed --%>
+<%--fixed1 --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/base.css" />
 <link rel="stylesheet" type="text/css" href="css/login.css" />
-
 <script src="https://kit.fontawesome.com/887323dcd1.js"
 	crossorigin="anonymous"></script>
 
 
-<title>Computer Hardware Management System</title>
+<title>User Login</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -27,37 +25,35 @@
 		}
 		%>
 	</div>
-	
-
-	<h1>Sign in</h1>
 		<center>
 	<form action="userLogin" method="post">
 		<div class="element">
 			<div id="table1">
+			<h1>SIGN IN</h1>
 				<table>
 					<tr>
-						<td>Email :</td>
+						<td><FONT COLOR=white>EMAIL</FONT></td>
 					</tr>
 					<tr>
-					<td><input type="text" name="email" required></td>
+					<td><input type="text" name="email" placeholder="Enter Email" required></td>
 					</tr>
 					<tr>
-					<td>Password:</td>
+					<td><FONT COLOR=white>PASSWORD</FONT></td>
 					</tr>
 					<tr>
-					<td><input type="password" name="password" required></td>
+					<td><input type="password" name="password" placeholder="Enter Password" required></td>
 					</tr>
 					<tr>
 					<td><input type="submit" value="login"></td>
 					</tr>
 					<tr>
-					<td><a href="forgotPassword.jsp">Forgot Password?</a></td>
+					<td><a href="forgotPassword.jsp"><FONT COLOR=white>Forgot Password?</a></td>
 					</tr>
 					<tr>
-					<td><a href="createUser.jsp">Create an account?</a></td>
+					<td><a href="createUser.jsp"><FONT COLOR=white>New User?</a></td>
 					</tr>
 					<tr>
-					<td><a href="adminLogin.jsp">Administrator login</a></td>
+					<td><a href="adminLogin.jsp"><FONT COLOR=white>Administrator login</a></td>
 					</tr>
 				</table>
 			</div>

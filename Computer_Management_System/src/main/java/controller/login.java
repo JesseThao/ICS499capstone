@@ -53,12 +53,12 @@ public class login extends HttpServlet {
 				request.setAttribute("email", email);
 				request.getRequestDispatcher("home.jsp").forward(request, response);
 			}if(z==0){
-				response.sendRedirect("login.jsp?msg=doesnotexist");
+				response.sendRedirect("adminLogin.jsp?msg=doesnotexist");
 			}
 			
 		} catch (SQLException e) {
 			System.out.println(e);
-			response.sendRedirect("login.jsp?msg=invalid");
+			response.sendRedirect("adminLogin.jsp?msg=invalid");
 		}
 	}
 	

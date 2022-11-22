@@ -1,10 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-<%--fixed --%>
+<%--fixed1 --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/base.css" />
 <link rel="stylesheet" type="text/css" href="css/login.css" />
 
 <script src="https://kit.fontawesome.com/887323dcd1.js"
@@ -15,6 +14,7 @@
 </head>
 <body>
 	<div class="login">
+		<%@ include file="header.jsp"%>
 		<%
 		String msg = request.getParameter("msg");
 			if ("doesnotexist".equals(msg)) {
@@ -25,25 +25,24 @@
 			%><h1>Something went wrong! try again</h1><%
 		}
 		%>
-	<%@ include file="header.jsp"%>
 	</div>
-	<h1>Administrator login</h1>
 		<center>
 	<form action="adminLogin" method="post">
 		<div class="element">
 			<div id="table1">
+			<h1>Administrator login</h1>
 				<table>
 					<tr>
-						<td>Email :</td>
+						<td><FONT COLOR=white>EMAIL</FONT></td>
 					</tr>
 					<tr>
-					<td><input type="text" name="email" required></td>
+					<td><input type="text" name="email" placeholder="ENTER EMAIL" required></td>
 					</tr>
 					<tr>
-					<td>Password:</td>
+					<td><FONT COLOR=white>PASSWORD</FONT></td>
 					</tr>
 					<tr>
-					<td><input type="password" name="password" required></td>
+					<td><input type="password" name="password" placeholder="ENTER PASSWORD" required></td>
 					</tr>
 					<tr>
 					<td><input type="submit" value="submit"></td>
