@@ -22,20 +22,25 @@
 			<tr>
 				<td>
 					<tr>
-						<h1>Testing the layout</h1>
-						<form method="get" action="UserListServlet">
-						<input type="submit" value="adminUserList" />
-						</form>
 						<div>
-						<form method="get" action="ProductServlet">
-						<input type="submit" value="adminProductList" />
+						<form method="get" action="AdminGetUser">
+						<input type="submit" value="User List" />
+						</form>
+							<tr>
+								<form method="get" action="">
+								<input type="submit" value="delete" />
+							</tr>
+						</div>
+						</div>
+						<form method="get" action="">
+						<input type="submit" value="Product List" />
 						</form>
 						</div>
 						</div>
-						<form method="get" action="ReviewServlet">
-						<input type="submit" value="adminReviewList" />
+						<form method="get" action="">
+						<input type="submit" value="Review List" />
 						</form>
-						<div>
+						</div>
 					<tr>
 				<td>
 			<tr>
