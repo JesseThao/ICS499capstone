@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,13 +35,16 @@ public class AdminGetProduct {
 	}
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		
 		try {
+		
 			HttpSession session = request.getSession();
 			Statement statement = connection.createStatement();		
 			String productID = request.getParameter("prodID");
 			Product product = new Product();
 			ResultSet rs = statement.executeQuery("SELECT * FROM cmhs.products where productID = '" + productID + "'");
-			product = product.getProduct(rs);
+			ArrayList<Product> products = product.getList(rs);
 			
 		}
 		

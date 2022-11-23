@@ -18,7 +18,7 @@ public class Administrator implements Serializable {
 		super();
 	}
 	
-	private ArrayList<Product> addProduct(ResultSet rs) {
+	public ArrayList<Product> getProduct(ResultSet rs) {
 		
 		try {
 			while (rs.next()) {
@@ -41,7 +41,7 @@ public class Administrator implements Serializable {
 		return adminProductList;
 	}
 	
-	private ArrayList<User> getUser(ResultSet rs) {
+	public ArrayList<User> getUserList(ResultSet rs) {
 		
 		try {
 			while (rs.next()) {
@@ -74,7 +74,7 @@ public class Administrator implements Serializable {
 	//	return adminProducts;
 	//}
 	
-	private void deleteProduct(Product product) {
+	public void deleteProduct(Product product) {
 		
 		Product resetProd = new Product();
 		resetProd.setProductType(product.getProductType());
@@ -86,7 +86,7 @@ public class Administrator implements Serializable {
 		}
 	}
 	
-	private void deleteReview(ReviewList review) {
+	public void deleteReview(ReviewList review) {
 		
 		
 		

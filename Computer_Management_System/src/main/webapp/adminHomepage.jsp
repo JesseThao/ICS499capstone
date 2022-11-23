@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 
+
 <%--commit test --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -18,36 +19,29 @@
 	
 	<h1>Administrator Home</h1>
 	
-	<div>
-		<table id="adminSetting">
-			<tr>
-				<td>
-					<tr>
-						<div>
-						<form method="get" action="AdminGetUser">
-						<input type="submit" value="User List" />
-						</form>
-							<tr>
-								<form method="get" action="">
-								<input type="submit" value="delete" />
-							</tr>
-						</div>
-						</div>
-						<form method="get" action="">
-						<input type="submit" value="Product List" />
-						</form>
-						</div>
-						</div>
-						<form method="get" action="">
-						<input type="submit" value="Review List" />
-						</form>
-						</div>
-					<tr>
-				<td>
-			<tr>
-		</table>
+	<div id="nav" class="adminMenu">
+		<form method="get" action="AdminGetUser">
+		<input type="submit" value="User List" />
+		</form>
+		<form method="get" action="AdminGetProduct">
+		<input type="submit" value="Product List" />
+		</form>
+		<form method="get" action="AdminGetReview">
+		<input type="submit" value="Review List" />
+		</form>
 	</div>
 	
+	<script>
+		var header = document.getElementById("nav");
+		var links = header.getElementsByClassName("menu_link");
+		for (var i = 0; i < links.length; i++){
+			links[i].addEventListener("click", function()
+				var current = document.getElementsByClassName("active");
+				current[0]/className = current[0].className.replace(" active", "");
+				this.className += " active";
+			));
+		}
+	</script>
 	
 	
 	<br /><div class="footer">Copyright 2022 All Rights Reserved.</div>
