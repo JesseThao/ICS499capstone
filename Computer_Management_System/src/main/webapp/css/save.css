@@ -16,7 +16,7 @@ body{
 	border-radius:200px;
 	background-color: #1d3f66;
 	width:fit-content;
-	height:fit-content;
+	height:250px;
 	margin:15px;
 	overflow: hidden
 }
@@ -38,11 +38,14 @@ h1{
 }
 
 .element input[type="text"]{
+	grid:center;
+	margin: center;
 	text-align: center;
     color: #1d3f66;
     background-color: white;
     cursor:pointer;
 }
+
 #error {
 	color: maroon;
 	font-weight: bold;	

@@ -13,10 +13,9 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
+		<center>
 <form id="save" action="Save">
 	<div class="element">
-
-		
 			<H1>Save Configuration</H1>
 			<div class="table1">
 			<table>
@@ -63,5 +62,6 @@
 		</c:choose>
 	</table>
 	</form>
+	</center>
 </body>
 </html>
