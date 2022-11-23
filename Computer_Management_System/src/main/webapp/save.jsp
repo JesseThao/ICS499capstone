@@ -37,7 +37,7 @@
 				</table>
 			</div>
 	</div>
-
+	<center>
 	<table class="results">
 		<c:choose>
 			<c:when test="${!empty err}">
@@ -48,19 +48,22 @@
 		</c:choose>
 		<c:choose>
 			<c:when test="${!empty success}">
-				<p class="results">Configuration saved with the following items:</p>
+				<p class="results"> <FONT COLOR=white>CONFIGURATION SAVE WITH THE FOLLOWING ITEMS:</FONT></p>
+				<center>
 				<c:forEach items="${sessionScope.config.mySelectedProducts}"
 					var="productSelected" varStatus="stat">
 					<tr>
-						<td class="element" scope="row" class="component">${productSelected.productType}</td>
-						<td class="element">${productSelected.productID }</td>
-						<td class="element">${productSelected.description }</td>
-						<td class="element">${productSelected.price }</td>
+						<td  class="element" scope="row" class="component"><FONT COLOR=white><center>${productSelected.productType}</center></FONT></td>
+						<td class="element"><FONT COLOR=white>${productSelected.productID }</FONT></td>
+						<td class="element"><FONT COLOR=white>${productSelected.description }</FONT></td>
+						<td class="element"><FONT COLOR=white>${productSelected.price }</FONT></td>
 					</tr>
 				</c:forEach>
+				</center>
 			</c:when>
 		</c:choose>
 	</table>
+	</center>
 	</form>
 	</center>
 </body>
