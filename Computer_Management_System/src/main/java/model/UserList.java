@@ -15,6 +15,7 @@ public class UserList {
 				u.setFirstName(rs.getString(1));
 				u.setLastName(rs.getString(2));
 				u.setEmailAddress(rs.getString(3));
+				u.setPassword(rs.getString(4));
 				
 				userList.add(u);
 			}

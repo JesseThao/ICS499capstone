@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//ResultSet rs = stmt.executeQuery("select email, password from user where email = '"+email+"' and password = '"+password+"'");
+import model.User;
+
 @WebServlet("/userLogin")
 public class login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -45,12 +46,17 @@ public class login extends HttpServlet {
 		int z = 0;
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet result = statement.executeQuery("select email, password from user where email = '"+email+"' and password = '"+password+"'");
-			
+			ResultSet result = statement.executeQuery("select firstName, lastName, email, password from user where email = '"+email+"' and password = '"+password+"'");
+			User user = new User();
 			while(result.next()) {
 				z=1;
 				session.setAttribute("email", email);
 				request.setAttribute("email", email);
+				user.setEmailAddress(result.getString("email"));
+				user.setFirstName(result.getString("firstName"));
+				user.setLastName(result.getString("lastName"));
+				
+				session.setAttribute("loggedInUser", user);
 				request.getRequestDispatcher("home.jsp").forward(request, response);
 			}if(z==0){
 				response.sendRedirect("adminLogin.jsp?msg=doesnotexist");

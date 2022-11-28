@@ -59,9 +59,7 @@ public class AddProduct extends HttpServlet {
 			product= product.getProduct(rs);
 			ResultSet rs2 = statement.executeQuery("SELECT productType FROM cmhs.components");
 			
-			HardwareConfig myProdList = new HardwareConfig();
-			//request.setAttribute("product", product );
-			
+			HardwareConfig myProdList = new HardwareConfig();			
 			
 			if (session.getAttribute("config") != null) {
 				myProdList = (HardwareConfig) session.getAttribute("config");
@@ -71,8 +69,6 @@ public class AddProduct extends HttpServlet {
 
 			}else {
 				
-				//myProdList.setMySelectedProducts(product);
-				//myProdList.setMyProducts(product);
 				myProdList.setComponents(rs2);								
 			}
 			session.setAttribute("config", myProdList);

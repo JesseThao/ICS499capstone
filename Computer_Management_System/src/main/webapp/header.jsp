@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-<%--fixed --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -20,23 +21,24 @@
 		<tr>
 			<td>
 				<ul>
-					<li><a href="home.jsp" title="Home"><i
-							class="fa-solid fa-house fa-lg"></i></a></li>
-					<li><a href="save.jsp" title="Save"><i
-							class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
-					<li><a href="myProfile.jsp" title="user"><i class="fa-regular fa-circle-user fa-lg"></i></a></li>
-					<%
-						String email = (String) session.getAttribute("email");
-						if(email == null){
-					%>
-					<li><a href="login.jsp" title="Log-in"><i class="fa-solid fa-right-to-bracket fa-lg"></i></a></li>
-					<% } else { %>
-					<li><a href="logout.jsp" title="logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i></a></li>	
-					<li><FONT COLOR=white>Hi, <%=email%></FONT><li>	
-					<% } %>
+					<li><a href="home.jsp" title="Home"><i class="fa-solid fa-house fa-lg"></i></a></li>
+					
+					
+					<c:choose>
+					<c:when test="${!empty loggedInUser }">
+						<li><a href="save.jsp" title="Save"><i class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
+						<li><a href="myProfile.jsp" title="user"><i class="fa-regular fa-circle-user fa-lg"></i></a></li>	
+						<li><a href="logout.jsp" title="logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i></a></li>	
+						<li><FONT COLOR=white>Hi, ${loggedInUser.emailAddress}</FONT><li>	
+					</c:when>
+					<c:otherwise>
+						<li><a href="login.jsp" title="Log-in"><i class="fa-solid fa-right-to-bracket fa-lg"></i></a></li>
+					</c:otherwise>
+					</c:choose>
 				</ul>
 			</td>
 		</tr>
 	</table>
+	
 </body>
 </html>

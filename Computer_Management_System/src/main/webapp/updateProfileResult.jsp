@@ -8,18 +8,20 @@
 
 <style>
 
-result {
+.result {
 background-color:blue;
 }
 
 </style>
 </head>
 <body>
-
+<div class="result">
+<h1>Successfully Updated!</h1>
+</div>
 <%@ include file="myProfile.jsp" %>
 
-<div id="result">
-Successfully Updated
-</div>
+
+
+
 </body>
 </html>

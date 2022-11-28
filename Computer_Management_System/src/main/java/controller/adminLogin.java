@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.User;
+
 /**
  * Servlet implementation class userLogin
  */
@@ -47,11 +49,16 @@ private Connection connection;
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet result = statement.executeQuery("SELECT * FROM cmhs.admin where email = '"+email+"' and password = '"+password+"'");
-			
+			User user = new User();
 			while(result.next()) {
 				z=1;
 				session.setAttribute("email", email);
 				request.setAttribute("email", email);
+				user.setEmailAddress(result.getString("email"));
+				user.setFirstName(result.getString("firstName"));
+				user.setLastName(result.getString("lastName"));
+				
+				session.setAttribute("loggedInUser", user);
 				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}if(z==0){
 				response.sendRedirect("adminLogin.jsp?msg=doesnotexist");

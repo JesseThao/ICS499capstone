@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.HardwareConfig;
 import model.Product;
@@ -46,19 +47,32 @@ public class UpdateUser extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			User userUpdate = new User();
+			HttpSession session = request.getSession();
 			userUpdate.setEmailAddress((String) request.getParameter("userEmail"));
 			userUpdate.setFirstName(request.getParameter("fname"));
 			userUpdate.setLastName(request.getParameter("lname"));
 			
 			if(request.getParameter("updateUser") != null) {
 				updateUser(userUpdate);
+				request.setAttribute("errorMsg", errorMsg);
+				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}
 			
 			if(request.getParameter("deleteUser") != null) {
 				deleteUser(userUpdate);
+				request.setAttribute("errorMsg", errorMsg);
+				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}
-			request.setAttribute("errorMsg", errorMsg);
-			request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
+			if(request.getParameter("updateProfile") != null) {
+				userUpdate.setEmailAddress(request.getParameter("email"));
+				userUpdate.setFirstName(request.getParameter("firstName"));
+				userUpdate.setLastName(request.getParameter("lastName"));
+				updateUser(userUpdate);
+				session.setAttribute("loggedInUser", userUpdate);
+				request.getRequestDispatcher("updateProfileResult.jsp").forward(request, response);
+			}
+			
+			
 	}
 	
 	/**
@@ -69,7 +83,7 @@ public class UpdateUser extends HttpServlet {
 	}
 	public void updateUser(User user) {
 		
-		String QUERY = "UPDATE cmhs.user SET firstName = ?, lastName = ? WHERE email = ?";
+		String QUERY = "UPDATE cmhs.user SET firstName = ?, lastName = ?, password = ? WHERE email = ?";
 
 		try {
 			var pStmt = createUpdateUserStmt(connection, QUERY, user);
@@ -97,6 +111,7 @@ public class UpdateUser extends HttpServlet {
 		pStmt.setString(1, user.getFirstName());
 		pStmt.setString(2, user.getLastName());
 		pStmt.setString(3, user.getEmailAddress());
+		pStmt.setString(4, user.getPassword());
 		
 		return pStmt;
 	}

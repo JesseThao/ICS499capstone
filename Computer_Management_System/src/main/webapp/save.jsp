@@ -23,7 +23,7 @@
 						<td><FONT COLOR=white>EMAIL</FONT></td>
 					</tr>
 					<tr>
-					<td><input type="text" name="email" placeholder="Enter Email" required></td>
+					<td><input type="text" name="email" value="${loggedInUser.emailAddress }" placeholder="Enter Email" required></td>
 					</tr>
 					<tr>
 					<td><FONT COLOR=white>FILENAME</FONT></td>
