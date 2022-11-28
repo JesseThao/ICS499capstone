@@ -46,8 +46,12 @@ public class CreateUserList extends HttpServlet {
 			UserList ul = new UserList();
 			ArrayList<User> result = ul.createList(rs);
 			request.setAttribute("userList", result);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("userListResult.jsp");
-			dispatcher.forward(request, response);
+			
+			if (request.getParameter("adminAllUser")!= null) {
+				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
+			}else
+				request.getRequestDispatcher("userListResult.jsp").forward(request, response);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

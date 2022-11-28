@@ -20,16 +20,23 @@
 		<tr>
 			<td>
 				<ul>
-					<li><a href="" title="getuser"><i class="fa-solid fa-users"></i></a></li>
+					<li><a href="" title="getuser"><i class="fa-solid fa-users fa-lg"></i></a></li>
 					<%
 						String email = (String) session.getAttribute("email");
 						if(email == null){
 					%>
-					<li><a href="adminlogin.jsp" title="Log-in"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+					<li><a href="adminlogin.jsp" title="Log-in"><i class="fa-solid fa-right-to-bracket fa-lg"></i></a></li>
 					<% } else { %>
-					<li><a href="logout.jsp" title="logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>	
-					<li><FONT COLOR=white>Hi, <%=email%></FONT><li>	
-					<% } %>		
+					<li><a href="logout.jsp" title="logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i></a></li>	
+					<li><FONT COLOR=white>Hi, <%=email%></FONT></li>	
+					<% } %>	
+					<div class="adminHeader">
+						<div class="adminDropdown">
+							<button class="link">Maintain Users</button>
+							<button class="link">Maintain Products</button>
+														
+						</div>
+					</div>	
 				</ul>
 			</td>
 		</tr>
