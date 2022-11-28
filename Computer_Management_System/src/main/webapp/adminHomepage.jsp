@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="adminHeader.jsp"%>
 	<h1>Administrator Home</h1>
 	<div class="container">
 		<div class="row1">	
@@ -71,11 +71,8 @@
 		</div>
 		</c:otherwise>
 		</c:choose>
-		<div class="row3">
-			<div class="footer">Copyright 2022 All Rights Reserved.</div>
-		</div>
 	</div>
 	
-	
+	<div class="footer">Copyright 2022 All Rights Reserved.</div>
 </body>
 </html>

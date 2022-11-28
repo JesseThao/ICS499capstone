@@ -12,6 +12,7 @@
 <title>User Login</title>
 </head>
 <body>
+	<center>
 	<%@ include file="header.jsp"%>
 	<div class="login">
 		<%
@@ -25,6 +26,7 @@
 		}
 		%>
 	</div>
+	</center>
 		<center>
 	<form action="userLogin" method="post">
 		<div class="element">
