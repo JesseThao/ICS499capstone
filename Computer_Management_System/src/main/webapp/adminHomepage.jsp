@@ -30,6 +30,17 @@
 				<p></p>			
 		</div>
 		<c:choose>
+			
+			<c:when test="${!empty errorMsg}">
+			<div class="row2">
+							
+				<p>${errorMsg}</p>
+				
+			</div>		
+			</c:when>
+			
+		</c:choose>
+		<c:choose>
 		<c:when test="${!empty userList}">
 		<div class="row2">
 			<c:choose><c:when test="${!empty errorMsg}">${errorMsg}"</c:when></c:choose>
@@ -39,7 +50,7 @@
 					<label>Email Address</label><input type="text" name="userEmail" value="${user.emailAddress }" readonly>
 					<label>First Name</label><input type="text" name="fname" value="${user.firstName }">
 					<label>Last Name</label><input type="text" name="lname" value="${user.lastName }">
-					<label>Password</label><input type="text" name="lname" value="${user.password}">
+					<label>Password</label><input type="text" name="password" value="${user.password}">
 					<button class="dlt" type="submit" title="Delete" name="deleteUser"	value="${user.emailAddress }"><i class="fa-solid fa-trash fa-lg"></i></button>
 					<button class="updateUser" type="submit" title="Update User" name="updateUser"	value="${user.emailAddress }"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
 				</div>

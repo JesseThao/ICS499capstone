@@ -59,7 +59,7 @@ public class login extends HttpServlet {
 				session.setAttribute("loggedInUser", user);
 				request.getRequestDispatcher("home.jsp").forward(request, response);
 			}if(z==0){
-				response.sendRedirect("adminLogin.jsp?msg=doesnotexist");
+				response.sendRedirect("login.jsp?msg=doesnotexist");
 			}
 			
 		} catch (SQLException e) {

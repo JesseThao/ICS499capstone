@@ -48,9 +48,12 @@ public class UpdateUser extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			User userUpdate = new User();
 			HttpSession session = request.getSession();
-			userUpdate.setEmailAddress((String) request.getParameter("userEmail"));
+			userUpdate.setEmailAddress(request.getParameter("userEmail"));
 			userUpdate.setFirstName(request.getParameter("fname"));
 			userUpdate.setLastName(request.getParameter("lname"));
+			userUpdate.setPassword(request.getParameter("password"));
+			errorMsg = null;
+			
 			
 			if(request.getParameter("updateUser") != null) {
 				updateUser(userUpdate);
@@ -87,6 +90,7 @@ public class UpdateUser extends HttpServlet {
 
 		try {
 			var pStmt = createUpdateUserStmt(connection, QUERY, user);
+			log("SQL statement: " + pStmt);
 			pStmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -97,12 +101,15 @@ public class UpdateUser extends HttpServlet {
 			String QUERY = "DELETE FROM cmhs.user WHERE email = ?";
 			try {
 				var pStmt = createDeleteUserStmt(connection, QUERY, user);
+				log("SQL statement: " + pStmt);
 				pStmt.executeUpdate();
+			} catch (java.sql.SQLIntegrityConstraintViolationException e) {
+				e.printStackTrace();
+				errorMsg = "Cannot delete or update a parent row: Foreign Key constraint";
 			} catch (SQLException e) {
 				e.printStackTrace();
 				errorMsg = e.getMessage();
-			}
-				
+			} 
 		}
 	
 	private PreparedStatement createUpdateUserStmt(Connection conn, String stmt, User user) throws SQLException {
@@ -110,8 +117,8 @@ public class UpdateUser extends HttpServlet {
 	    
 		pStmt.setString(1, user.getFirstName());
 		pStmt.setString(2, user.getLastName());
-		pStmt.setString(3, user.getEmailAddress());
-		pStmt.setString(4, user.getPassword());
+		pStmt.setString(3, user.getPassword());
+		pStmt.setString(4, user.getEmailAddress());
 		
 		return pStmt;
 	}

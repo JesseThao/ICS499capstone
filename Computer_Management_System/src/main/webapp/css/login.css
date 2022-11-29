@@ -17,7 +17,7 @@ body{
 	margin:15px;
 	overflow: hidden
 }
-}
+
 
 .element{
 	position: relative;
@@ -50,6 +50,7 @@ h1{
 	font-weight: 700;
 	font-family:verdana;
 	background-color:#1d3f66;
+	
 }
 
 .element input[type="submit"]{

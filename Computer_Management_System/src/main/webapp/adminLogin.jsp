@@ -13,8 +13,9 @@
 <title>Computer Hardware Management System</title>
 </head>
 <body>
-	<div class="login">
-		<%@ include file="header.jsp"%>
+<%@ include file="header.jsp"%>
+	<center>
+	<div class="login">		
 		<%
 		String msg = request.getParameter("msg");
 			if ("doesnotexist".equals(msg)) {
@@ -26,6 +27,7 @@
 		}
 		%>
 	</div>
+	</center>
 		<center>
 	<form action="adminLogin" method="post">
 		<div class="element">

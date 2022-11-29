@@ -18,7 +18,7 @@
 		<%
 		String msg = request.getParameter("msg");
 			if ("doesnotexist".equals(msg)) {
-			%><h1>Incorrect Username or Password</h1><%
+			%><div class="error"></div><h1>Incorrect Username or Password</h1></div><%
 		}
 		%><%
 			if ("invalid".equals(msg)) {
