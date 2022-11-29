@@ -24,7 +24,7 @@
 					<li><a href="home.jsp" title="Home"><i class="fa-solid fa-house fa-lg"></i></a></li>
 					<c:choose>
 					<c:when test="${!empty adminUser }">
-						<li><a href="home.jsp" title="Administrator Home"><i class="fa-solid fa-user-gear fa-lg"></i></a></li>
+						<li><a href="adminHomepage.jsp" title="Administrator Home"><i class="fa-solid fa-user-gear fa-lg"></i></a></li>
 					</c:when>			
 					</c:choose>
 					<c:choose>
