@@ -12,7 +12,6 @@
 </head>
 <body>
 <%@ include file="header.jsp"%>
-	<form method="get" action="ProductInfo">
 		<div id="info">
 			<table id="table0">
 				<tr>
@@ -35,7 +34,7 @@
 								<td>
 									<table id="table2">
 										<tr>
-											<td>name:<%
+											<td>Name:<%
 											String name = (String) request.getAttribute("name");
 											out.print(name);
 											%>
@@ -63,9 +62,9 @@
 											</td>
 										</tr>
 										<tr>
-											<td>TDP:<%
-											String tdp = (String) request.getAttribute("tdp");
-											out.print(tdp);
+											<td>Power:<%
+											String power = (String) request.getAttribute("power");
+											out.print(power);
 											%>
 											</td>
 										</tr>
@@ -77,7 +76,12 @@
 											</td>
 										</tr>
 										<tr>
-											<td><input type="submit" name="submit" /></td>
+										<form action="AddProduct">
+											<%
+											String id = (String) request.getParameter("product");
+											%>
+											<td><input type="submit" value="+" class="btn btn-primary component-btn" /><input type="hidden" name="prodID" value="<%out.print(id);%>"/></td>
+										</form>
 										</tr>
 									</table>
 								</td>
@@ -87,7 +91,6 @@
 				</tr>
 			</table>
 		</div>
-	</form>
 	<script src="js/createUserMod.js"></script>
 </body>
 </html>

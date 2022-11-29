@@ -29,7 +29,10 @@
 				
 				<fmt:formatNumber type="number" var="avgRate" maxFractionDigits="1" value="${product.reviewAverage}" />			
 					<tr class="items">
-						<td><a href="ProductInfo">${product.productID}</a></td>
+						<form id="product" method="get" action="ProductInfo">
+						<td><button  type="submit" value="${product.productID}" name="product">${product.productID}</button>
+						</td>
+						</form>
 						<form action="RetrieveReview">
 							<td width="10%"><input type="submit" value="${avgRate} star"
 								class="btn btn-primary component-btn" /> <input type="hidden"
