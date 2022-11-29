@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<%@ include file="adminHeader.jsp"%>
+	<%@ include file="header.jsp"%>
 	<h1>Administrator Home</h1>
 	<div class="container">
 		<div class="row1">	

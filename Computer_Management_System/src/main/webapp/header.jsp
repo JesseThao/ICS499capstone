@@ -22,8 +22,11 @@
 			<td>
 				<ul>
 					<li><a href="home.jsp" title="Home"><i class="fa-solid fa-house fa-lg"></i></a></li>
-					
-					
+					<c:choose>
+					<c:when test="${!empty adminUser }">
+						<li><a href="home.jsp" title="Administrator Home"><i class="fa-solid fa-user-gear fa-lg"></i></a></li>
+					</c:when>			
+					</c:choose>
 					<c:choose>
 					<c:when test="${!empty loggedInUser }">
 						<li><a href="save.jsp" title="Save"><i class="fa-regular fa-floppy-disk fa-lg"></i></a></li>
@@ -31,6 +34,7 @@
 						<li><a href="logout.jsp" title="logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i></a></li>	
 						<li><FONT COLOR=white>Hi, ${loggedInUser.emailAddress}</FONT><li>	
 					</c:when>
+					
 					<c:otherwise>
 						<li><a href="login.jsp" title="Log-in"><i class="fa-solid fa-right-to-bracket fa-lg"></i></a></li>
 					</c:otherwise>

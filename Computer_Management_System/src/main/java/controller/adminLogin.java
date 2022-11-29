@@ -59,6 +59,7 @@ private Connection connection;
 				user.setLastName(result.getString("lastName"));
 				
 				session.setAttribute("loggedInUser", user);
+				session.setAttribute("adminUser", user);
 				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}if(z==0){
 				response.sendRedirect("adminLogin.jsp?msg=doesnotexist");
