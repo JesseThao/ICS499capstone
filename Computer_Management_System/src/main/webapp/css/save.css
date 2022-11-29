@@ -21,6 +21,19 @@ body{
 	overflow: hidden
 }
 
+.element2{
+	margin:0 auto;
+	top:10px;
+	bottom:10px;
+	justify-content: left;
+	border-radius:10px;
+	background-color: #1d3f66;
+	width:fit-content;
+	height:25px;
+	margin:15px;
+	overflow: hidden
+}
+
 h1{
 	width:500px;
 	text-align: center;

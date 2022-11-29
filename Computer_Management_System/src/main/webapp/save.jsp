@@ -48,15 +48,15 @@
 		</c:choose>
 		<c:choose>
 			<c:when test="${!empty success}">
-				<p class="results"> <FONT COLOR=white>CONFIGURATION SAVE WITH THE FOLLOWING ITEMS:</FONT></p>
+				<p class="results"> <FONT COLOR=#1d3f66>CONFIGURATION SAVED WITH THE FOLLOWING ITEMS:</FONT></p>
 				<center>
 				<c:forEach items="${sessionScope.config.mySelectedProducts}"
 					var="productSelected" varStatus="stat">
 					<tr>
-						<td  class="element" scope="row" class="component"><FONT COLOR=white><center>${productSelected.productType}</center></FONT></td>
-						<td class="element"><FONT COLOR=white>${productSelected.productID }</FONT></td>
-						<td class="element"><FONT COLOR=white>${productSelected.description }</FONT></td>
-						<td class="element"><FONT COLOR=white>${productSelected.price }</FONT></td>
+						<td  class="element2" scope="row" class="component"><FONT COLOR=white><center>${productSelected.productType}</center></FONT></td>
+						<td class="element2"><FONT COLOR=white>${productSelected.productID }</FONT></td>
+						<td class="element2"><FONT COLOR=white>${productSelected.description }</FONT></td>
+						<td class="element2"><FONT COLOR=white>${productSelected.price }</FONT></td>
 					</tr>
 				</c:forEach>
 				</center>
