@@ -57,12 +57,18 @@ public class UpdateUser extends HttpServlet {
 			
 			if(request.getParameter("updateUser") != null) {
 				updateUser(userUpdate);
+				if(errorMsg == null) {
+					errorMsg = "User updated successfully!";
+				}
 				request.setAttribute("errorMsg", errorMsg);
 				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}
 			
 			if(request.getParameter("deleteUser") != null) {
 				deleteUser(userUpdate);
+				if(errorMsg == null) {
+					errorMsg = "User deleted successfully!";
+				}
 				request.setAttribute("errorMsg", errorMsg);
 				request.getRequestDispatcher("adminHomepage.jsp").forward(request, response);
 			}
@@ -132,7 +138,7 @@ public class UpdateUser extends HttpServlet {
 		return pStmt;
 	}
 	
-	public void destroty(){
+	public void destroy(){
 		try {
 			connection.close();
 		} catch (SQLException e) {

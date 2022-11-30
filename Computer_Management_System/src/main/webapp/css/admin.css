@@ -84,3 +84,8 @@
 	width:100%;
 	justify-self: left;
 }
+.msg{
+	color:darkred;
+	font-size: 20px;
+	font-weight:bold;
+}

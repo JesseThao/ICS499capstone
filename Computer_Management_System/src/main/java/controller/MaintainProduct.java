@@ -43,6 +43,7 @@ public class MaintainProduct extends HttpServlet {
 		product.setProductID(request.getParameter("productID"));
 		product.setDescription(request.getParameter("productDescription"));
 		product.setProductType(request.getParameter("productType"));
+		errorMsg = null;
 		try {
 			product.setPrice(Double.parseDouble(request.getParameter("productPrice")));
 	
@@ -63,14 +64,23 @@ public class MaintainProduct extends HttpServlet {
 		
 		if(request.getParameter("createProduct") != null) {
 			createProduct(product);
+			if(errorMsg == null) {
+				errorMsg = "Product created successfully!";
+			}
 		}
 		
 		if(request.getParameter("deleteProduct") != null) {
 			deleteProduct(product);
+			if(errorMsg == null) {
+				errorMsg = "Product deleted successfully!";
+			}
 		}
 		if(request.getParameter("editProduct") != null) {
 			
 			updateProduct(product);
+			if(errorMsg == null) {
+				errorMsg = "Product updated successfully!";
+			}
 		}
 		request.setAttribute("errorMsg", errorMsg);
 		request.setAttribute("product", product);

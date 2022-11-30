@@ -34,7 +34,7 @@
 			<c:when test="${!empty errorMsg}">
 			<div class="row2">
 							
-				<p>${errorMsg}</p>
+				<p class="msg">${errorMsg}</p>
 				
 			</div>		
 			</c:when>

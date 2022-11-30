@@ -16,6 +16,7 @@
 <body>
 	<%@ include file="header.jsp"%>
 	<div class="login">
+	<center>
 		<%
 		String msg = request.getParameter("msg");
 		if ("done".equals(msg)) {
@@ -26,6 +27,7 @@
 		%><h1>Something went wrong! try again</h1><%
 		}
 		%>
+	</center>
 	</div>
 	<center>
 		<form action="forgotPassword" method="get">
