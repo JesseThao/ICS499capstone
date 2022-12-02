@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -43,15 +44,19 @@ public class CreateUser extends HttpServlet {
 		
 		try {
 			Statement statement = connection.createStatement();
-			int result = statement.executeUpdate("insert into user values('"+firstName+"','"+lastName+"','"+email+"','"+password+"')");
-			
-			if(result > 0) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("createUserResult.jsp");
-				dispatcher.forward(request, response);
-			}else {
-				System.out.println("Error Creating User");
+			ResultSet rs = statement.executeQuery("select email from user where email='"+email+"'");
+			if(rs.next() == false) {
+				int result = statement.executeUpdate("insert into user values('"+firstName+"','"+lastName+"','"+email+"','"+password+"')");
+				
+				if(result > 0) {
+					RequestDispatcher dispatcher = request.getRequestDispatcher("createUserResult.jsp");
+					dispatcher.forward(request, response);
+				}
 			}
-			
+			else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("createUserError.jsp");
+				dispatcher.forward(request, response);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
